@@ -1,0 +1,56 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=5
+
+[application]
+
+config/name="GFramework-Godot-Template"
+run/main_scene="uid://6s2urcdmkpbt"
+config/features=PackedStringArray("4.5", "C#", "GL Compatibility")
+config/icon="uid://p5dak2wsc1nk"
+
+[audio]
+
+buses/default_bus_layout="res://resource/project_bus_layout.tres"
+
+[autoload]
+
+GameEntryPoint="*res://global/game_entry_point.tscn"
+UiRoot="*res://global/ui_root.tscn"
+GlobalInputController="*res://global/GlobalInputController.cs"
+
+[display]
+
+window/size/viewport_width=1920
+window/size/viewport_height=1080
+
+[dotnet]
+
+project/assembly_name="GFramework-Godot-Template"
+
+[file_customization]
+
+folder_colors={
+"res://assets/": "red",
+"res://global/": "orange",
+"res://resource/": "yellow",
+"res://scenes/": "green",
+"res://script_templates/": "blue",
+"res://scripts/": "teal"
+}
+
+[gui]
+
+theme/custom="uid://drg0lvsgoqfsc"
+
+[rendering]
+
+renderer/rendering_method="gl_compatibility"
+renderer/rendering_method.mobile="gl_compatibility"
+textures/vram_compression/import_etc2_astc=true

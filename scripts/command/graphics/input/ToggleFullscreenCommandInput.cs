@@ -1,6 +1,6 @@
 using GFramework.Core.Abstractions.command;
 
-namespace GFrameworkGodotTemplate.scripts.command.graphics.input;
+namespace EchoesOfThePit.scripts.command.graphics.input;
 
 /// <summary>
 /// 切换全屏命令输入类

@@ -1,12 +1,12 @@
 using System;
+using EchoesOfThePit.scripts.core.constants;
 using GFramework.Core.extensions;
 using GFramework.Game.Abstractions.ui;
 using GFramework.SourceGenerators.Abstractions.logging;
 using GFramework.SourceGenerators.Abstractions.rule;
-using GFrameworkGodotTemplate.scripts.core.constants;
 using Godot;
 
-namespace GFrameworkGodotTemplate.global;
+namespace EchoesOfThePit.global;
 
 /// <summary>
 /// UI画布层根节点，用于管理UI页面的添加和组织

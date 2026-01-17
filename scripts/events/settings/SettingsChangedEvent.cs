@@ -1,6 +1,6 @@
-﻿using GFrameworkGodotTemplate.scripts.enums.settings;
+﻿using EchoesOfThePit.scripts.enums.settings;
 
-namespace GFrameworkGodotTemplate.scripts.events.settings;
+namespace EchoesOfThePit.scripts.events.settings;
 
 /// <summary>
 /// 表示设置发生更改时触发的事件

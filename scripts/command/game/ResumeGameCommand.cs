@@ -1,11 +1,10 @@
-﻿using GFramework.Core.Abstractions.state;
+﻿using EchoesOfThePit.scripts.command.game.input;
+using EchoesOfThePit.scripts.core.state.impls;
+using GFramework.Core.Abstractions.state;
 using GFramework.Core.command;
 using GFramework.Core.extensions;
-using GFramework.Game.state;
-using GFrameworkGodotTemplate.scripts.command.game.input;
-using GFrameworkGodotTemplate.scripts.core.state.impls;
 
-namespace GFrameworkGodotTemplate.scripts.command.game;
+namespace EchoesOfThePit.scripts.command.game;
 
 /// <summary>
 /// 恢复游戏命令类，用于取消游戏暂停状态

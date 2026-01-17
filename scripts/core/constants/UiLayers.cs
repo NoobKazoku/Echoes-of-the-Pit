@@ -1,4 +1,4 @@
-﻿namespace GFrameworkGodotTemplate.scripts.core.constants;
+﻿namespace EchoesOfThePit.scripts.core.constants;
 
 /// <summary>
 /// 定义UI层级常量的静态类，用于管理不同UI元素的渲染层级

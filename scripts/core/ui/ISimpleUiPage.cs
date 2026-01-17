@@ -1,6 +1,6 @@
 ﻿using GFramework.Game.Abstractions.ui;
 
-namespace GFrameworkGodotTemplate.scripts.core.ui;
+namespace EchoesOfThePit.scripts.core.ui;
 
 /// <summary>
 /// 简单UI页面接口，继承自IUiPage接口

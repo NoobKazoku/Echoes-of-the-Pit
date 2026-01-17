@@ -1,7 +1,7 @@
-﻿using GFramework.Core.environment;
-using GFrameworkGodotTemplate.scripts.core.constants;
+﻿using EchoesOfThePit.scripts.core.constants;
+using GFramework.Core.environment;
 
-namespace GFrameworkGodotTemplate.scripts.core.environment;
+namespace EchoesOfThePit.scripts.core.environment;
 
 /// <summary>
 /// 游戏主环境类，继承自EnvironmentBase

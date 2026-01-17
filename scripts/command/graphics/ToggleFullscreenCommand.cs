@@ -1,11 +1,10 @@
 using System.Threading.Tasks;
-using GFramework.Core.Abstractions.command;
+using EchoesOfThePit.scripts.command.graphics.input;
+using EchoesOfThePit.scripts.setting.interfaces;
 using GFramework.Core.command;
 using GFramework.Core.extensions;
-using GFrameworkGodotTemplate.scripts.command.graphics.input;
-using GFrameworkGodotTemplate.scripts.setting.interfaces;
 
-namespace GFrameworkGodotTemplate.scripts.command.graphics;
+namespace EchoesOfThePit.scripts.command.graphics;
 
 /// <summary>
 /// 切换全屏模式命令类

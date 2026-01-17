@@ -1,7 +1,7 @@
 ﻿using System.Threading.Tasks;
 using GFramework.Core.Abstractions.system;
 
-namespace GFrameworkGodotTemplate.scripts.setting.interfaces;
+namespace EchoesOfThePit.scripts.setting.interfaces;
 
 /// <summary>
 /// 定义设置系统的接口，提供应用各种设置的方法

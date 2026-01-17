@@ -1,6 +1,6 @@
 ﻿using GFramework.Core.Abstractions.model;
 
-namespace GFrameworkGodotTemplate.scripts.setting.interfaces;
+namespace EchoesOfThePit.scripts.setting.interfaces;
 
 /// <summary>
 /// 定义应用程序设置模型的接口，继承自IModel基础接口

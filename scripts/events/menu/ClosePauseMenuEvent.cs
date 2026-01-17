@@ -1,4 +1,4 @@
-namespace GFrameworkGodotTemplate.scripts.events.menu;
+namespace EchoesOfThePit.scripts.events.menu;
 
 /// <summary>
 /// 关闭暂停菜单事件

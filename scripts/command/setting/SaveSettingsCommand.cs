@@ -1,9 +1,9 @@
-﻿using GFramework.Core.command;
+﻿using EchoesOfThePit.scripts.setting;
+using EchoesOfThePit.scripts.setting.interfaces;
+using GFramework.Core.command;
 using GFramework.Core.extensions;
-using GFrameworkGodotTemplate.scripts.setting;
-using GFrameworkGodotTemplate.scripts.setting.interfaces;
 
-namespace GFrameworkGodotTemplate.scripts.command.setting;
+namespace EchoesOfThePit.scripts.command.setting;
 
 /// <summary>
 /// 保存游戏设置命令类

@@ -1,7 +1,7 @@
 ﻿using GFramework.Core.Abstractions.command;
 using Godot;
 
-namespace GFrameworkGodotTemplate.scripts.command.game.input;
+namespace EchoesOfThePit.scripts.command.game.input;
 
 /// <summary>
 /// 恢复游戏命令输入类，封装执行恢复游戏操作所需的数据

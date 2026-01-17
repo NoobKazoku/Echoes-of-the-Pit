@@ -1,6 +1,6 @@
 using GFramework.Core.Abstractions.command;
 
-namespace GFrameworkGodotTemplate.scripts.command.graphics.input;
+namespace EchoesOfThePit.scripts.command.graphics.input;
 
 /// <summary>
 /// 分辨率更改命令输入类，用于传递分辨率更改所需的参数

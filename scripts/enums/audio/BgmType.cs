@@ -1,5 +1,5 @@
 // 定义背景音乐类型的枚举
-namespace GFrameworkGodotTemplate.scripts.enums.audio;
+namespace EchoesOfThePit.scripts.enums.audio;
 
 /// <summary>
 /// 背景音乐类型枚举，用于标识游戏中不同场景的背景音乐

@@ -1,7 +1,7 @@
-﻿using GFramework.Core.command;
-using GFrameworkGodotTemplate.scripts.command.game.input;
+﻿using EchoesOfThePit.scripts.command.game.input;
+using GFramework.Core.command;
 
-namespace GFrameworkGodotTemplate.scripts.command.game;
+namespace EchoesOfThePit.scripts.command.game;
 
 /// <summary>
 /// 退出游戏命令类，用于处理游戏退出逻辑

@@ -1,7 +1,7 @@
+using EchoesOfThePit.scripts.setting;
 using GFramework.Core.Abstractions.command;
-using GFrameworkGodotTemplate.scripts.setting;
 
-namespace GFrameworkGodotTemplate.scripts.command.setting.input;
+namespace EchoesOfThePit.scripts.command.setting.input;
 
 /// <summary>
 /// 应用设置数据命令输入类

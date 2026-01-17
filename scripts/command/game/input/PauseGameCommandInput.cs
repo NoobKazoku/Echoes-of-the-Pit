@@ -1,8 +1,7 @@
-﻿
-using GFramework.Core.Abstractions.command;
+﻿using GFramework.Core.Abstractions.command;
 using Godot;
 
-namespace GFrameworkGodotTemplate.scripts.command.game.input;
+namespace EchoesOfThePit.scripts.command.game.input;
 
 /// <summary>
 /// 暂停游戏命令输入类，定义执行暂停游戏命令所需的输入参数

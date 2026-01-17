@@ -1,7 +1,7 @@
-﻿using GFramework.Core.model;
-using GFrameworkGodotTemplate.scripts.setting.interfaces;
+﻿using EchoesOfThePit.scripts.setting.interfaces;
+using GFramework.Core.model;
 
-namespace GFrameworkGodotTemplate.scripts.setting;
+namespace EchoesOfThePit.scripts.setting;
 
 public class SettingsModel: AbstractModel,ISettingsModel
 {

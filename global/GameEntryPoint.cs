@@ -1,20 +1,18 @@
+using EchoesOfThePit.scripts.core;
+using EchoesOfThePit.scripts.core.environment;
+using EchoesOfThePit.scripts.core.state.impls;
 using GFramework.Core.Abstractions.architecture;
 using GFramework.Core.Abstractions.logging;
 using GFramework.Core.Abstractions.properties;
 using GFramework.Core.Abstractions.state;
 using GFramework.Core.architecture;
 using GFramework.Core.extensions;
-using GFramework.Game.state;
 using GFramework.Godot.logging;
 using GFramework.SourceGenerators.Abstractions.logging;
 using GFramework.SourceGenerators.Abstractions.rule;
-using GFrameworkGodotTemplate.scripts.core;
-using GFrameworkGodotTemplate.scripts.core.environment;
-using GFrameworkGodotTemplate.scripts.core.state;
-using GFrameworkGodotTemplate.scripts.core.state.impls;
 using Godot;
 
-namespace GFrameworkGodotTemplate.global;
+namespace EchoesOfThePit.global;
 
 /// <summary>
 /// 游戏入口点节点类，负责初始化游戏架构和管理全局游戏状态

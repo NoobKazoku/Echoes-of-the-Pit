@@ -1,11 +1,11 @@
 ﻿using System.Threading.Tasks;
+using EchoesOfThePit.scripts.enums.settings;
+using EchoesOfThePit.scripts.events.settings;
+using EchoesOfThePit.scripts.setting.interfaces;
 using GFramework.Core.command;
 using GFramework.Core.extensions;
-using GFrameworkGodotTemplate.scripts.enums.settings;
-using GFrameworkGodotTemplate.scripts.events.settings;
-using GFrameworkGodotTemplate.scripts.setting.interfaces;
 
-namespace GFrameworkGodotTemplate.scripts.command.setting;
+namespace EchoesOfThePit.scripts.command.setting;
 
 /// <summary>
 /// 重置设置命令类，用于将音频和图形设置恢复为默认值

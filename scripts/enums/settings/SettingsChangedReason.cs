@@ -1,4 +1,4 @@
-﻿namespace GFrameworkGodotTemplate.scripts.enums.settings;
+﻿namespace EchoesOfThePit.scripts.enums.settings;
 
 /// <summary>
 /// 定义设置更改的原因枚举

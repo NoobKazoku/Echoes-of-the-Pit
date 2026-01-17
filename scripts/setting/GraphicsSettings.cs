@@ -1,4 +1,4 @@
-namespace GFrameworkGodotTemplate.scripts.setting;
+namespace EchoesOfThePit.scripts.setting;
 
 /// <summary>
 /// 图形设置类，用于管理游戏的图形相关配置

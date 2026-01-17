@@ -1,14 +1,14 @@
+using EchoesOfThePit.scripts.core.constants;
+using EchoesOfThePit.scripts.core.ui;
 using GFramework.Core.Abstractions.controller;
 using GFramework.Core.extensions;
 using GFramework.Game.Abstractions.ui;
 using GFramework.Godot.ui;
 using GFramework.SourceGenerators.Abstractions.logging;
 using GFramework.SourceGenerators.Abstractions.rule;
-using GFrameworkGodotTemplate.scripts.core.constants;
-using GFrameworkGodotTemplate.scripts.core.ui;
 using Godot;
 
-namespace GFrameworkGodotTemplate.scenes.tests.ui;
+namespace EchoesOfThePit.scenes.tests.ui;
 
 [ContextAware]
 [Log]

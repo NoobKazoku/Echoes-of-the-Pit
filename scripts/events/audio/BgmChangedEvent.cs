@@ -1,6 +1,6 @@
-﻿using GFrameworkGodotTemplate.scripts.enums.audio;
+﻿using EchoesOfThePit.scripts.enums.audio;
 
-namespace GFrameworkGodotTemplate.scripts.events.audio;
+namespace EchoesOfThePit.scripts.events.audio;
 
 /// <summary>
 /// 背景音乐变更事件类

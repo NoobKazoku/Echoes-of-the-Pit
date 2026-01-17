@@ -1,10 +1,10 @@
 using System.Threading.Tasks;
+using EchoesOfThePit.scripts.command.graphics.input;
+using EchoesOfThePit.scripts.setting.interfaces;
 using GFramework.Core.command;
 using GFramework.Core.extensions;
-using GFrameworkGodotTemplate.scripts.command.graphics.input;
-using GFrameworkGodotTemplate.scripts.setting.interfaces;
 
-namespace GFrameworkGodotTemplate.scripts.command.graphics;
+namespace EchoesOfThePit.scripts.command.graphics;
 
 /// <summary>
 /// 更改分辨率命令类，用于处理分辨率更改操作

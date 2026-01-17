@@ -1,10 +1,10 @@
+using EchoesOfThePit.scripts.core.constants;
 using GFramework.Core.Abstractions.state;
 using GFramework.Core.extensions;
 using GFramework.Core.state;
 using GFramework.Game.Abstractions.ui;
-using GFrameworkGodotTemplate.scripts.core.constants;
 
-namespace GFrameworkGodotTemplate.scripts.core.state.impls;
+namespace EchoesOfThePit.scripts.core.state.impls;
 
 /// <summary>
 /// 主菜单状态

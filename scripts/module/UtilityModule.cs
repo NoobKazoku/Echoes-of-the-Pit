@@ -1,13 +1,13 @@
-﻿using GFramework.Core.Abstractions.architecture;
+﻿using EchoesOfThePit.scripts.core.constants;
+using EchoesOfThePit.scripts.setting;
+using GFramework.Core.Abstractions.architecture;
 using GFramework.Game.architecture;
 using GFramework.Game.serializer;
 using GFramework.Godot.storage;
 using GFramework.Godot.ui;
-using GFrameworkGodotTemplate.scripts.core.constants;
-using GFrameworkGodotTemplate.scripts.setting;
 using Godot;
 
-namespace GFrameworkGodotTemplate.scripts.module;
+namespace EchoesOfThePit.scripts.module;
 
 /// <summary>
 /// 工具模块类，负责安装和管理游戏中的实用工具组件

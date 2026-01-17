@@ -1,4 +1,4 @@
-﻿namespace GFrameworkGodotTemplate.scripts.enums.audio;
+﻿namespace EchoesOfThePit.scripts.enums.audio;
 
 /// <summary>
 /// 音效类型枚举，定义了游戏中可用的不同音效类别

@@ -1,14 +1,12 @@
 using System.Threading.Tasks;
-using GFramework.Core.Abstractions.command;
+using EchoesOfThePit.scripts.command.setting.input;
+using EchoesOfThePit.scripts.enums.settings;
+using EchoesOfThePit.scripts.events.settings;
+using EchoesOfThePit.scripts.setting.interfaces;
 using GFramework.Core.command;
 using GFramework.Core.extensions;
-using GFrameworkGodotTemplate.scripts.command.setting.input;
-using GFrameworkGodotTemplate.scripts.enums.settings;
-using GFrameworkGodotTemplate.scripts.events.settings;
-using GFrameworkGodotTemplate.scripts.setting;
-using GFrameworkGodotTemplate.scripts.setting.interfaces;
 
-namespace GFrameworkGodotTemplate.scripts.command.setting;
+namespace EchoesOfThePit.scripts.command.setting;
 
 /// <summary>
 /// 应用设置数据命令

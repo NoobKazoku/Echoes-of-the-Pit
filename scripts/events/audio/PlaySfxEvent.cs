@@ -1,6 +1,6 @@
-﻿using GFrameworkGodotTemplate.scripts.enums.audio;
+﻿using EchoesOfThePit.scripts.enums.audio;
 
-namespace GFrameworkGodotTemplate.scripts.events.audio;
+namespace EchoesOfThePit.scripts.events.audio;
 
 /// <summary>
 /// 音效播放事件类，用于触发特定类型的音效播放

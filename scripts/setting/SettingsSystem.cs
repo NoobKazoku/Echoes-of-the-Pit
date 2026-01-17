@@ -1,12 +1,12 @@
 using System.Threading.Tasks;
+using EchoesOfThePit.scripts.constants;
+using EchoesOfThePit.scripts.setting.interfaces;
 using GFramework.Core.extensions;
 using GFramework.Core.system;
 using GFramework.SourceGenerators.Abstractions.logging;
-using GFrameworkGodotTemplate.scripts.constants;
-using GFrameworkGodotTemplate.scripts.setting.interfaces;
 using Godot;
 
-namespace GFrameworkGodotTemplate.scripts.setting;
+namespace EchoesOfThePit.scripts.setting;
 
 /// <summary>
 /// 游戏设置系统，负责管理并应用游戏的各项设置（图形、音频等）

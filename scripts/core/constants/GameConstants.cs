@@ -1,4 +1,4 @@
-﻿namespace GFrameworkGodotTemplate.scripts.core.constants;
+﻿namespace EchoesOfThePit.scripts.core.constants;
 
 public static class GameConstants
 {

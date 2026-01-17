@@ -1,10 +1,10 @@
-﻿using GFramework.Core.Abstractions.storage;
+﻿using EchoesOfThePit.scripts.setting.interfaces;
+using GFramework.Core.Abstractions.storage;
 using GFramework.Core.extensions;
 using GFramework.Core.utility;
-using GFrameworkGodotTemplate.scripts.setting.interfaces;
 using Godot;
 
-namespace GFrameworkGodotTemplate.scripts.setting;
+namespace EchoesOfThePit.scripts.setting;
 
 /// <summary>
 /// 设置数据存储工具类，负责设置数据的加载和保存

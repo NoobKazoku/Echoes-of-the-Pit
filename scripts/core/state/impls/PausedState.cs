@@ -1,6 +1,6 @@
 using GFramework.Core.state;
 
-namespace GFrameworkGodotTemplate.scripts.core.state.impls;
+namespace EchoesOfThePit.scripts.core.state.impls;
 
 /// <summary>
 /// 暂停状态

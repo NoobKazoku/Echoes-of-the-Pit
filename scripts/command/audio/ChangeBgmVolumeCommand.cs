@@ -1,10 +1,9 @@
-using GFramework.Core.Abstractions.command;
+using EchoesOfThePit.scripts.command.audio.input;
+using EchoesOfThePit.scripts.setting.interfaces;
 using GFramework.Core.command;
 using GFramework.Core.extensions;
-using GFrameworkGodotTemplate.scripts.command.audio.input;
-using GFrameworkGodotTemplate.scripts.setting.interfaces;
 
-namespace GFrameworkGodotTemplate.scripts.command.audio;
+namespace EchoesOfThePit.scripts.command.audio;
 
 /// <summary>
 /// 更改背景音乐音量命令类，用于处理BGM音量更改操作

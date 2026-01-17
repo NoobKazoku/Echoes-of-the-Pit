@@ -1,7 +1,7 @@
 ﻿using GFramework.Core.Abstractions.controller;
 using Godot;
 
-namespace GFrameworkGodotTemplate.scripts.core.controller;
+namespace EchoesOfThePit.scripts.core.controller;
 
 /// <summary>
 /// 游戏输入控制器抽象基类，继承自Node并实现IController接口

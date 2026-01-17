@@ -1,15 +1,15 @@
+using EchoesOfThePit.scripts.command.game;
+using EchoesOfThePit.scripts.command.game.input;
+using EchoesOfThePit.scripts.core.controller;
+using EchoesOfThePit.scripts.core.state.impls;
+using EchoesOfThePit.scripts.events.menu;
 using GFramework.Core.Abstractions.state;
 using GFramework.Core.extensions;
 using GFramework.SourceGenerators.Abstractions.logging;
 using GFramework.SourceGenerators.Abstractions.rule;
-using GFrameworkGodotTemplate.scripts.command.game;
-using GFrameworkGodotTemplate.scripts.command.game.input;
-using GFrameworkGodotTemplate.scripts.core.controller;
-using GFrameworkGodotTemplate.scripts.core.state.impls;
-using GFrameworkGodotTemplate.scripts.events.menu;
 using Godot;
 
-namespace GFrameworkGodotTemplate.global;
+namespace EchoesOfThePit.global;
 
 [ContextAware]
 [Log]

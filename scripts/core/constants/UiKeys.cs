@@ -1,4 +1,4 @@
-﻿namespace GFrameworkGodotTemplate.scripts.core.constants;
+﻿namespace EchoesOfThePit.scripts.core.constants;
 
 /// <summary>
 /// 定义用户界面相关的键值常量，用于标识不同的UI界面

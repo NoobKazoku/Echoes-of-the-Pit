@@ -1,9 +1,9 @@
-﻿using GFramework.Core.Abstractions.architecture;
+﻿using EchoesOfThePit.scripts.core.ui;
+using GFramework.Core.Abstractions.architecture;
 using GFramework.Game.architecture;
 using GFramework.Game.setting;
-using GFrameworkGodotTemplate.scripts.core.ui;
 
-namespace GFrameworkGodotTemplate.scripts.module;
+namespace EchoesOfThePit.scripts.module;
 
 /// <summary>
 /// 系统Godot模块类，负责安装和注册游戏所需的各种系统组件

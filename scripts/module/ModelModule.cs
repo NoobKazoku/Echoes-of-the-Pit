@@ -2,7 +2,7 @@
 using GFramework.Game.architecture;
 using GFramework.Game.setting;
 
-namespace GFrameworkGodotTemplate.scripts.module;
+namespace EchoesOfThePit.scripts.module;
 
 /// <summary>
 /// Godot模块实现类，负责安装和注册游戏中的各种模型

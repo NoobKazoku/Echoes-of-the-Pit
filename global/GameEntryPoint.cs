@@ -2,7 +2,9 @@ using EchoesOfThePit.scripts.command.setting;
 using EchoesOfThePit.scripts.command.setting.input;
 using EchoesOfThePit.scripts.core;
 using EchoesOfThePit.scripts.core.environment;
+using EchoesOfThePit.scripts.core.resource;
 using EchoesOfThePit.scripts.core.state.impls;
+using EchoesOfThePit.scripts.enums.game;
 using EchoesOfThePit.scripts.setting.interfaces;
 using GFramework.Core.Abstractions.architecture;
 using GFramework.Core.Abstractions.logging;
@@ -11,9 +13,12 @@ using GFramework.Core.Abstractions.state;
 using GFramework.Core.architecture;
 using GFramework.Core.extensions;
 using GFramework.Godot.logging;
+using GFramework.Godot.scene;
+using GFramework.Godot.ui;
 using GFramework.SourceGenerators.Abstractions.logging;
 using GFramework.SourceGenerators.Abstractions.rule;
 using Godot;
+using Godot.Collections;
 
 namespace EchoesOfThePit.global;
 
@@ -27,8 +32,17 @@ public partial class GameEntryPoint : Node
     public static IArchitecture Architecture { get; private set; } = null!;
     private ISettingsStorageUtility _settingsStorageUtility = null!;
     private ISettingsModel _settingsModel = null!;
+    private GodotUiRegistry _uiRegistry = null!;
+    private GodotSceneRegistry _sceneRegistry = null!;
     [Export] public bool IsDev { get; set; } = true;
-
+    /// <summary>
+    /// UI页面配置数组，包含所有可用的UI页面配置项
+    /// </summary>
+    /// <value>
+    /// 存储UiPageConfig对象的数组集合
+    /// </value>
+    [Export] public Array<UiPageConfig> UiPageConfigs { get; set; } = null!;
+    [Export] public Array<GameSceneConfig> GameSceneConfigs { get; set; } = null!;
     /// <summary>
     /// Godot引擎调用的节点就绪方法，在此方法中初始化游戏架构和相关组件
     /// </summary>
@@ -56,6 +70,19 @@ public partial class GameEntryPoint : Node
             Settings = data,
         })).ConfigureAwait(false);
         _log.Info("设置已加载");
+        _sceneRegistry = this.GetUtility<GodotSceneRegistry>()!;
+        _uiRegistry = this.GetUtility<GodotUiRegistry>()!;
+        // 注册所有游戏场景配置到场景注册表中
+        foreach (var gameSceneConfig in GameSceneConfigs)
+        {
+            _sceneRegistry.Registry(gameSceneConfig);
+        }
+        // 注册所有UI页面配置到UI注册表中
+        foreach (var uiPageConfig in UiPageConfigs)
+        {
+            _uiRegistry.Registry(uiPageConfig);
+        }
+        // 检查是否应该进入主菜单状态，如果是则注册UI根节点就绪事件来切换到主菜单状态
         if (ShouldEnterMainMenu())
         {
             this.RegisterEvent<UiRoot.UiRootReadyEvent>(_ =>
@@ -68,6 +95,10 @@ public partial class GameEntryPoint : Node
         _log.Debug("GameEntryPoint ready.");
     }
 
+    /// <summary>
+    /// 判断当前场景是否为主菜单场景，决定是否需要进入主菜单状态
+    /// </summary>
+    /// <returns>如果当前场景是主菜单场景则返回true，否则返回false</returns>
     private bool ShouldEnterMainMenu()
     {
         var tree = GetTree();
@@ -77,13 +108,12 @@ public partial class GameEntryPoint : Node
             return false;
 
         var scenePath = currentScene.SceneFilePath;
-        return scenePath == "res://scenes/main.tscn";
+        return string.Equals(scenePath, _sceneRegistry.Get(nameof(GameSceneKey.Main)).GetPath(), System.StringComparison.Ordinal);
     }
 
     /// <summary>
-    /// 当节点从场景树中移除时调用，销毁游戏架构
+    /// 当节点从场景树中移除时调用，保存当前设置数据到存储
     /// </summary>
-    /// <returns>无返回值</returns>
     public override void _ExitTree()
     {
         _settingsStorageUtility.Save(_settingsModel.GetSettingsData());

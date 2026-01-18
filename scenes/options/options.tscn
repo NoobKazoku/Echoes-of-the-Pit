@@ -194,6 +194,7 @@ size_flags_horizontal = 3
 text = "语言"
 
 [node name="LanguageOptionButton" type="OptionButton" parent="Panel/MarginContainer/HBoxContainer/MarginContainer/HBoxContainer/Localization/MarginContainer/LanguageContainer"]
+unique_name_in_owner = true
 custom_minimum_size = Vector2(321, 0)
 layout_mode = 2
 size_flags_horizontal = 3

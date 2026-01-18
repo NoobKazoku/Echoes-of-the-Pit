@@ -1,4 +1,5 @@
-﻿using EchoesOfThePit.scripts.core.ui;
+﻿using EchoesOfThePit.scripts.audio;
+using EchoesOfThePit.scripts.core.ui;
 using GFramework.Core.Abstractions.architecture;
 using GFramework.Game.architecture;
 using GFramework.Game.setting;
@@ -17,6 +18,7 @@ public class SystemModule: AbstractModule
     /// <param name="architecture">游戏架构接口实例，用于注册系统</param>
     public override void Install(IArchitecture architecture)
     {
+        architecture.RegisterSystem(new AudioSystem());
         architecture.RegisterSystem(new UiRouter());
         architecture.RegisterSystem(new SettingsSystem());
     }

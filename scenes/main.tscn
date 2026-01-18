@@ -1,5 +1,4 @@
 [gd_scene format=3 uid="uid://6s2urcdmkpbt"]
 
 [node name="Main" type="Node2D"]
-
-[node name="GameRoot" type="Node2D" parent="."]
+editor_description = "这个主场景目前占位用的，暂时没用途。"

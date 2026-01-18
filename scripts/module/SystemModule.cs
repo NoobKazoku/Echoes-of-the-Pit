@@ -1,9 +1,9 @@
 ﻿using EchoesOfThePit.scripts.audio;
 using EchoesOfThePit.scripts.core.ui;
 using EchoesOfThePit.scripts.options;
+using EchoesOfThePit.scripts.setting;
 using GFramework.Core.Abstractions.architecture;
 using GFramework.Game.architecture;
-using GFramework.Game.setting;
 
 namespace EchoesOfThePit.scripts.module;
 

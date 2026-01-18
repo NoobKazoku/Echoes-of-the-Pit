@@ -1,6 +1,7 @@
 ﻿using EchoesOfThePit.scripts.events.menu;
 using GFramework.Core.extensions;
 using GFramework.Core.system;
+using GFramework.Godot.extensions;
 using Godot;
 
 namespace EchoesOfThePit.scripts.options;
@@ -37,7 +38,7 @@ public class OptionsMenuSystem: AbstractSystem
             if (_currentOptions == null)
                 return;
 
-            _currentOptions.QueueFree();
+            _currentOptions.QueueFreeX();
             _currentOptions = null;
         });
     }

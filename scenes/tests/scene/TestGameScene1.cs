@@ -1,0 +1,20 @@
+using GFramework.Core.Abstractions.controller;
+using GFramework.SourceGenerators.Abstractions.logging;
+using GFramework.SourceGenerators.Abstractions.rule;
+using Godot;
+
+namespace EchoesOfThePit.scenes.tests.scene;
+
+[ContextAware]
+[Log]
+public partial class TestGameScene1 :Node2D,IController
+{
+	/// <summary>
+	/// 节点准备就绪时的回调方法
+	/// 在节点添加到场景树后调用
+	/// </summary>
+	public override void _Ready()
+	{
+		
+	}
+}

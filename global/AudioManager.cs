@@ -51,10 +51,12 @@ public partial class AudioManager :Node,IController
     /// </summary>
     public override void _Ready()
     {
+        _log.Debug("AudioManager节点准备就绪");
         BgmAudioStreamPlayer.Bus = GameConstants.Bgm;
         // 注册背景音乐变更事件监听器
         this.RegisterEvent<BgmChangedEvent>(@event =>
         {
+            _log.Debug("监听到背景音乐变更事件", @event.BgmType.ToString());
             // 停止当前播放的背景音乐
             BgmAudioStreamPlayer.Stop();
 

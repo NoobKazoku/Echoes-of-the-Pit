@@ -1,3 +1,4 @@
+using System;
 using EchoesOfThePit.scripts.core.constants;
 using EchoesOfThePit.scripts.core.ui;
 using EchoesOfThePit.scripts.enums.audio;
@@ -32,6 +33,7 @@ public partial class TestMainMenu : Control, IController,IUiPageBehaviorProvider
     /// </summary>
     public override void _Ready()
     {
+        _log.Info("测试主菜单 _Ready");
         var uiRouter = this.GetSystem<IUiRouter>()!;
         Page1Button.Pressed += () =>
         {
@@ -41,12 +43,21 @@ public partial class TestMainMenu : Control, IController,IUiPageBehaviorProvider
         Page3Button.Pressed += () => { uiRouter.Replace(UiKeys.Page3); };
     }
 
-    public void OnEnter(IUiPageEnterParam? param)
+    public async void OnEnter(IUiPageEnterParam? param)
     {
-        _log.Info("测试主菜单 OnEnter");
-        this.SendEvent(new BgmChangedEvent
+        try
         {
-            BgmType = BgmType.MainMenu,
-        });
+            _log.Info("测试主菜单 OnEnter");
+            await ToSignal(GetTree(), SceneTree.SignalName.ProcessFrame);
+
+            this.SendEvent(new BgmChangedEvent
+            {
+                BgmType = BgmType.MainMenu,
+            });
+        }
+        catch (Exception e)
+        {
+            _log.Error($"OnEnter 方法执行出错: {e.Message}",e);
+        }
     }
 }

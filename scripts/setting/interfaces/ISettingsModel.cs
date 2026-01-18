@@ -19,7 +19,13 @@ public interface ISettingsModel: IModel
     AudioSettings Audio { get; }
     
     /// <summary>
+    /// 获取本地化设置配置对象
+    /// </summary>
+    LocalizationSettings Localization { get; }
+    
+    /// <summary>
     /// 获取当前设置的数据对象
     /// </summary>
+    /// <returns>返回包含所有设置数据的SettingsData对象</returns>
     SettingsData GetSettingsData();
 }

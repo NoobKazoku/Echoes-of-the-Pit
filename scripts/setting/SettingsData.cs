@@ -14,4 +14,9 @@ public class SettingsData
     /// 图形设置配置对象，包含所有图形渲染相关的设置选项
     /// </summary>
     public GraphicsSettings Graphics { get; set; } = new();
+    
+    /// <summary>
+    /// 本地化设置配置对象，包含所有语言和区域相关的设置选项
+    /// </summary>
+    public LocalizationSettings Localization { get; set; } = new();
 }

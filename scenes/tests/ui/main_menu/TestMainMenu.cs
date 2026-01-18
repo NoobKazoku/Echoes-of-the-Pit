@@ -1,8 +1,6 @@
-using System;
 using EchoesOfThePit.scripts.core.constants;
 using EchoesOfThePit.scripts.core.ui;
-using EchoesOfThePit.scripts.enums.audio;
-using EchoesOfThePit.scripts.events.audio;
+using EchoesOfThePit.scripts.events.menu;
 using GFramework.Core.Abstractions.controller;
 using GFramework.Core.extensions;
 using GFramework.Game.Abstractions.ui;
@@ -15,18 +13,20 @@ namespace EchoesOfThePit.scenes.tests.ui.main_menu;
 
 [ContextAware]
 [Log]
-public partial class TestMainMenu : Control, IController,IUiPageBehaviorProvider,ISimpleUiPage
+public partial class TestMainMenu : Control, IController, IUiPageBehaviorProvider, ISimpleUiPage
 {
     private Button Page1Button => GetNode<Button>("%Page1Button");
     private Button Page2Button => GetNode<Button>("%Page2Button");
     private Button Page3Button => GetNode<Button>("%Page3Button");
 
     private IUiPageBehavior? _page;
+
     public IUiPageBehavior GetPage()
     {
         _page ??= new CanvasItemUiPageBehavior<Control>(this);
         return _page;
     }
+
     /// <summary>
     /// 节点准备就绪时的回调方法
     /// 在节点添加到场景树后调用
@@ -35,29 +35,14 @@ public partial class TestMainMenu : Control, IController,IUiPageBehaviorProvider
     {
         _log.Info("测试主菜单 _Ready");
         var uiRouter = this.GetSystem<IUiRouter>()!;
-        Page1Button.Pressed += () =>
-        {
-            uiRouter.Replace(UiKeys.Page1);
-        };
+        Page1Button.Pressed += () => { uiRouter.Replace(UiKeys.Page1); };
         Page2Button.Pressed += () => { uiRouter.Replace(UiKeys.Page2); };
         Page3Button.Pressed += () => { uiRouter.Replace(UiKeys.Page3); };
     }
 
-    public async void OnEnter(IUiPageEnterParam? param)
+    public void OnEnter(IUiPageEnterParam? param)
     {
-        try
-        {
-            _log.Info("测试主菜单 OnEnter");
-            await ToSignal(GetTree(), SceneTree.SignalName.ProcessFrame);
-
-            this.SendEvent(new BgmChangedEvent
-            {
-                BgmType = BgmType.MainMenu,
-            });
-        }
-        catch (Exception e)
-        {
-            _log.Error($"OnEnter 方法执行出错: {e.Message}",e);
-        }
+        _log.Info("测试主菜单 OnEnter");
+        this.SendEvent(new EnterMainMenuEvent());
     }
 }

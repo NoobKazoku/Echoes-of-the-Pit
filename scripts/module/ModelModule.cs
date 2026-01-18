@@ -1,4 +1,5 @@
-﻿using GFramework.Core.Abstractions.architecture;
+﻿using EchoesOfThePit.scripts.audio;
+using GFramework.Core.Abstractions.architecture;
 using GFramework.Game.architecture;
 using GFramework.Game.setting;
 
@@ -16,5 +17,6 @@ public class ModelModule: AbstractModule
     public override void Install(IArchitecture architecture)
     {
         architecture.RegisterModel(new SettingsModel());
+        architecture.RegisterModel(new AudioStateModel());
     }
 }

@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://b2mtxjwr50gtr"]
+
+[ext_resource type="Script" uid="uid://cbd681pqdru71" path="res://global/AudioManager.cs" id="1_siwhy"]
+[ext_resource type="AudioStream" uid="uid://dikutfrajbnan" path="res://assets/music/Terran04.mp3" id="2_2b24j"]
+
+[node name="AudioManager" type="Node"]
+script = ExtResource("1_siwhy")
+BgmAudioStream = ExtResource("2_2b24j")
+
+[node name="BgmAudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("2_2b24j")

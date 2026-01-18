@@ -4,3 +4,4 @@
 
 [node name="GameEntryPoint" type="Node"]
 script = ExtResource("1_a14y6")
+IsDev = false

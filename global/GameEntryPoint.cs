@@ -56,11 +56,10 @@ public partial class GameEntryPoint : Node
             Settings = data,
         })).ConfigureAwait(false);
         _log.Info("设置已加载");
-        if (!IsDev)
+        if (ShouldEnterMainMenu())
         {
             this.RegisterEvent<UiRoot.UiRootReadyEvent>(_ =>
             {
-                // 创建并切换到游戏主菜单状态
                 this.GetSystem<IStateMachineSystem>()!
                     .ChangeTo<MainMenuState>();
             });
@@ -68,6 +67,19 @@ public partial class GameEntryPoint : Node
 
         _log.Debug("GameEntryPoint ready.");
     }
+
+    private bool ShouldEnterMainMenu()
+    {
+        var tree = GetTree();
+        var currentScene = tree.CurrentScene;
+
+        if (currentScene == null)
+            return false;
+
+        var scenePath = currentScene.SceneFilePath;
+        return scenePath == "res://scenes/main.tscn";
+    }
+
     /// <summary>
     /// 当节点从场景树中移除时调用，销毁游戏架构
     /// </summary>

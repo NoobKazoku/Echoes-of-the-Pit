@@ -11,5 +11,16 @@ public enum GameSceneKey
     /// 通常用于初始化游戏环境、加载基础资源等操作
     /// </summary>
     Boot,
-    Main
+
+    /// <summary>
+    /// 主游戏场景
+    /// 核心游戏逻辑和主要界面显示的场景
+    /// </summary>
+    Main,
+
+    /// <summary>
+    /// 商店场景
+    /// 玩家进行物品购买、升级等相关操作的场景
+    /// </summary>
+    Shop,
 }

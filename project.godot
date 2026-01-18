@@ -30,7 +30,7 @@ GameRoot="*res://global/game_root.tscn"
 UiRoot="*res://global/ui_root.tscn"
 AudioManager="*res://global/audio_manager.tscn"
 GlobalInputController="*res://global/GlobalInputController.cs"
-SceneLoader="*res://global/scene_loader.tscn"
+SceneLoader="*res://global/SceneLoader.cs"
 
 [display]
 

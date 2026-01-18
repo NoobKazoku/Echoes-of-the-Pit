@@ -1,5 +1,11 @@
 ﻿using EchoesOfThePit.scripts.core.loader;
+using EchoesOfThePit.scripts.events.scene;
+using GFramework.Core.Abstractions.controller;
+using GFramework.Core.extensions;
 using GFramework.Godot.extensions;
+using GFramework.Godot.scene;
+using GFramework.SourceGenerators.Abstractions.logging;
+using GFramework.SourceGenerators.Abstractions.rule;
 using Godot;
 
 namespace EchoesOfThePit.global;
@@ -7,9 +13,12 @@ namespace EchoesOfThePit.global;
 /// <summary>
 /// 场景加载器，负责管理游戏场景的加载、替换和卸载
 /// </summary>
-public partial class SceneLoader : Node, ISceneLoader
+[Log]
+[ContextAware]
+public partial class SceneLoader : Node, ISceneLoader, IController
 {
     [Export] private NodePath _gameRootPath = new("/root/GameRoot");
+    private GodotSceneRegistry _sceneRegistry = null!;
 
     private Node GameRoot => GetNode(_gameRootPath);
 
@@ -18,12 +27,14 @@ public partial class SceneLoader : Node, ISceneLoader
     /// </summary>
     public Node? Current { get; private set; }
 
+
     /// <summary>
-    /// 替换当前场景为指定路径的新场景
+    /// 替换当前场景为指定键对应的新场景
     /// </summary>
-    /// <param name="scenePath">新场景的资源路径</param>
-    public void Replace(string scenePath)
+    /// <param name="key">场景注册表中的键值</param>
+    public void Replace(string key)
     {
+        _log.Info("Replace scene: {0}", key);
         // 1. 卸载旧场景
         if (Current != null)
         {
@@ -32,9 +43,8 @@ public partial class SceneLoader : Node, ISceneLoader
         }
 
         // 2. 加载新场景
-        var packed = GD.Load<PackedScene>(scenePath);
+        var packed = _sceneRegistry.Get(key);
         var scene = packed.Instantiate();
-
         // 3. 挂到 GameRoot
         GameRoot.AddChild(scene);
         Current = scene;
@@ -47,5 +57,14 @@ public partial class SceneLoader : Node, ISceneLoader
     {
         Current.QueueFreeX();
         Current = null;
+    }
+
+    public override void _Ready()
+    {
+        _sceneRegistry = this.GetUtility<GodotSceneRegistry>()!;
+        // 监听 ChangeSceneEvent
+        this.RegisterEvent<ChangeSceneEvent>(e => Replace(e.SceneKey)).UnRegisterWhenNodeExitTree(this);
+        // 监听 UnloadSceneEvent
+        this.RegisterEvent<UnloadSceneEvent>(_ => Unload()).UnRegisterWhenNodeExitTree(this);
     }
 }

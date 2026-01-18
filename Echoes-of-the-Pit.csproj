@@ -37,6 +37,7 @@
       <Folder Include="scripts\command\graphics\input\" />
       <Folder Include="scripts\command\setting\input\" />
         <Folder Include="scripts\pause_menu\"/>
+        <Folder Include="scripts\shop\"/>
       <Folder Include="scripts\tests\" />
     </ItemGroup>
 </Project>

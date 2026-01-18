@@ -18,6 +18,7 @@ public partial class TestMainMenu : Control, IController, IUiPageBehaviorProvide
     private Button Page1Button => GetNode<Button>("%Page1Button");
     private Button Page2Button => GetNode<Button>("%Page2Button");
     private Button Page3Button => GetNode<Button>("%Page3Button");
+    private Button GameScene1Button => GetNode<Button>("%GameScene1Button");
 
     private IUiPageBehavior? _page;
 
@@ -38,6 +39,7 @@ public partial class TestMainMenu : Control, IController, IUiPageBehaviorProvide
         Page1Button.Pressed += () => { uiRouter.Replace(UiKeys.Page1); };
         Page2Button.Pressed += () => { uiRouter.Replace(UiKeys.Page2); };
         Page3Button.Pressed += () => { uiRouter.Replace(UiKeys.Page3); };
+        GameScene1Button.Pressed += () => { uiRouter.Replace(UiKeys.GameScene1); };
     }
 
     public void OnEnter(IUiPageEnterParam? param)

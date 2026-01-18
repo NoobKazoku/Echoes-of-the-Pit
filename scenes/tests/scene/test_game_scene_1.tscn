@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://de5gjkxeq2fdn"]
+
+[ext_resource type="Texture2D" uid="uid://p5dak2wsc1nk" path="res://nooblogo.png" id="1_d1v18"]
+[ext_resource type="Script" uid="uid://dv18xq7d0ipc6" path="res://scenes/tests/scene/TestGameScene1.cs" id="1_u4uj1"]
+
+[node name="TestGameScene1" type="Node2D"]
+script = ExtResource("1_u4uj1")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(971, 576)
+texture = ExtResource("1_d1v18")

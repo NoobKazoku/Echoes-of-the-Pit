@@ -55,3 +55,8 @@ text = "场景2"
 unique_name_in_owner = true
 layout_mode = 2
 text = "场景3"
+
+[node name="GameScene1Button" type="Button" parent="HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "场景3"

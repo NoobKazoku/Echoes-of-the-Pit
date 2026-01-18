@@ -1,8 +1,8 @@
 ﻿// meta-name: 简单UI页面控制器类模板
 // meta-description: 负责管理UI页面场景的生命周期和架构关联
+using EchoesOfThePit.scripts.core.ui;
 using Godot;
 using GFramework.Core.Abstractions.controller;
-using GFramework.Core.extensions;
 using GFramework.Game.Abstractions.ui;
 using GFramework.Godot.ui;
 using GFramework.SourceGenerators.Abstractions.logging;

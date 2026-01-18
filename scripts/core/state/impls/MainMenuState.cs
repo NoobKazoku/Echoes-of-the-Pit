@@ -1,4 +1,3 @@
-using EchoesOfThePit.scripts.core.constants;
 using EchoesOfThePit.scripts.enums.ui;
 using GFramework.Core.Abstractions.state;
 using GFramework.Core.extensions;
@@ -32,7 +31,7 @@ public class MainMenuState : ContextAwareStateBase
         // 从界面栈中弹出当前UI，隐藏主菜单界面
         this.GetSystem<IUiRouter>()!.Pop();
     }
-    
+
     /// <summary>
     /// 判断是否可以切换到下一个状态
     /// </summary>

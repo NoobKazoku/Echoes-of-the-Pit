@@ -22,7 +22,7 @@ public class UtilityModule : AbstractModule
     {
         architecture.RegisterUtility(
             new GodotUiRegistry()
-                .Register(UiKeys.MainMenu, GD.Load<PackedScene>("res://scenes/tests/ui/main_menu/test_main_menu.tscn"))
+                .Register(UiKeys.MainMenu, GD.Load<PackedScene>("res://scenes/main_menu/main_menu.tscn"))
                 .Register(UiKeys.Page1, GD.Load<PackedScene>("res://scenes/tests/ui/page_1.tscn"))
                 .Register(UiKeys.Page2, GD.Load<PackedScene>("res://scenes/tests/ui/page_2.tscn"))
                 .Register(UiKeys.Page3, GD.Load<PackedScene>("res://scenes/tests/ui/page_3.tscn"))

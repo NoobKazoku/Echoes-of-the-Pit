@@ -20,16 +20,11 @@ public sealed class GetCurrentSettingsQuery(EmptyQueryInput input) : AbstractQue
     {
         // 从模型中获取设置数据
         var model = this.GetModel<ISettingsModel>()!;
-
+        // 再此可以校验设置数据
         // 构建并返回设置视图对象
         return new SettingsView
         {
-            MasterVolume = model.Audio.MasterVolume,
-            BgmVolume = model.Audio.BgmVolume,
-            SfxVolume = model.Audio.SfxVolume,
-            Fullscreen = model.Graphics.Fullscreen,
-            ResolutionWidth = model.Graphics.ResolutionWidth,
-            ResolutionHeight = model.Graphics.ResolutionHeight,
+            SettingsData = model.GetSettingsData(),
         };
     }
 }

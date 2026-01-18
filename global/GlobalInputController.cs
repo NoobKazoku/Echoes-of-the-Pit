@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using EchoesOfThePit.scripts.command.game;
 using EchoesOfThePit.scripts.command.game.input;
 using EchoesOfThePit.scripts.core.controller;
@@ -35,9 +36,8 @@ public partial class GlobalInputController :GameInputController
 		{
 			return;
 		}
-
 		var current = _stateMachineSystem.Current;
-		if (current is not PlayingState)
+		if (current is not (PlayingState or PausedState))
 		{
 			return;
 		}

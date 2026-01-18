@@ -1,5 +1,6 @@
 ﻿using EchoesOfThePit.scripts.audio;
 using EchoesOfThePit.scripts.core.ui;
+using EchoesOfThePit.scripts.options;
 using GFramework.Core.Abstractions.architecture;
 using GFramework.Game.architecture;
 using GFramework.Game.setting;
@@ -21,5 +22,6 @@ public class SystemModule: AbstractModule
         architecture.RegisterSystem(new AudioSystem());
         architecture.RegisterSystem(new UiRouter());
         architecture.RegisterSystem(new SettingsSystem());
+        architecture.RegisterSystem(new OptionsMenuSystem());
     }
 }

@@ -1,11 +1,10 @@
-﻿using EchoesOfThePit.scripts.core.constants;
-using EchoesOfThePit.scripts.setting;
+﻿using EchoesOfThePit.scripts.setting;
 using GFramework.Core.Abstractions.architecture;
 using GFramework.Game.architecture;
 using GFramework.Game.serializer;
+using GFramework.Godot.scene;
 using GFramework.Godot.storage;
 using GFramework.Godot.ui;
-using Godot;
 
 namespace EchoesOfThePit.scripts.module;
 
@@ -20,13 +19,8 @@ public class UtilityModule : AbstractModule
     /// <param name="architecture">要安装模块的目标游戏架构实例</param>
     public override void Install(IArchitecture architecture)
     {
-        architecture.RegisterUtility(
-            new GodotUiRegistry()
-                .Register(UiKeys.MainMenu, GD.Load<PackedScene>("res://scenes/main_menu/main_menu.tscn"))
-                .Register(UiKeys.Page1, GD.Load<PackedScene>("res://scenes/tests/ui/page_1.tscn"))
-                .Register(UiKeys.Page2, GD.Load<PackedScene>("res://scenes/tests/ui/page_2.tscn"))
-                .Register(UiKeys.Page3, GD.Load<PackedScene>("res://scenes/tests/ui/page_3.tscn"))
-        );
+        architecture.RegisterUtility(new GodotUiRegistry());
+        architecture.RegisterUtility(new GodotSceneRegistry());
         architecture.RegisterUtility(new GodotUiFactory());
         var jsonSerializer = new JsonSerializer();
         architecture.RegisterUtility(jsonSerializer);

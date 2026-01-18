@@ -1,9 +1,48 @@
-[gd_scene load_steps=2 format=3 uid="uid://v30k60rwpqgk"]
+[gd_scene load_steps=6 format=3 uid="uid://v30k60rwpqgk"]
+
+[ext_resource type="Script" uid="uid://kxn2vwx4u2bf" path="res://scripts/move_manager/Grid.cs" id="1_71xgt"]
+[ext_resource type="Texture2D" uid="uid://k2tdgpx0ht6y" path="res://assets/art/格子悬浮.png" id="2_27le6"]
+[ext_resource type="Texture2D" uid="uid://bdtamh2l0a0k3" path="res://assets/art/格子选中.png" id="3_y3gnx"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3diqf"]
 size = Vector2(64, 64)
 
+[sub_resource type="SpriteFrames" id="SpriteFrames_rd0pj"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_27le6")
+}],
+"loop": true,
+"name": &"hover",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": null
+}],
+"loop": true,
+"name": &"normal",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_y3gnx")
+}],
+"loop": true,
+"name": &"pressed",
+"speed": 5.0
+}]
+
 [node name="Grid" type="Area2D"]
+script = ExtResource("1_71xgt")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+unique_name_in_owner = true
 shape = SubResource("RectangleShape2D_3diqf")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+unique_name_in_owner = true
+sprite_frames = SubResource("SpriteFrames_rd0pj")
+animation = &"normal"
+autoplay = "normal"

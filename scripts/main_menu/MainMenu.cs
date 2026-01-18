@@ -18,14 +18,15 @@ public partial class MainMenu :Control,IController,IUiPageBehaviorProvider,IUiPa
 	{
 		GetNode<Button>("%NewGame").Pressed += () =>
 		{
-			_log.Debug("开始按钮被按下");
-			GD.Print("开始按钮被按下");
+			_log.Debug("新游戏按钮被按下");
+			GD.Print("新游戏按钮被按下");
+			GetTree().ChangeSceneToFile("res://scenes/shop/shop.tscn");
 		};
 
 		GetNode<Button>("%LoadGame").Pressed += () =>
 		{
-			_log.Debug("加载按钮被按下");
-			GD.Print("加载按钮被按下");
+			_log.Debug("加载存档按钮被按下");
+			GD.Print("加载存档按钮被按下");
 		};
 
 		GetNode<Button>("%Option").Pressed += () =>
@@ -44,6 +45,7 @@ public partial class MainMenu :Control,IController,IUiPageBehaviorProvider,IUiPa
 		{
 			_log.Debug("退出按钮被按下");
 			GD.Print("退出按钮被按下");
+			GetTree().Quit();
 		};
 	}
 	/// <summary>

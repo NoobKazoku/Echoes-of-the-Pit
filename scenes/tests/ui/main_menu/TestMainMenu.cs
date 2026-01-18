@@ -1,5 +1,7 @@
 using EchoesOfThePit.scripts.core.constants;
 using EchoesOfThePit.scripts.core.ui;
+using EchoesOfThePit.scripts.enums.audio;
+using EchoesOfThePit.scripts.events.audio;
 using GFramework.Core.Abstractions.controller;
 using GFramework.Core.extensions;
 using GFramework.Game.Abstractions.ui;
@@ -42,5 +44,9 @@ public partial class TestMainMenu : Control, IController,IUiPageBehaviorProvider
     public void OnEnter(IUiPageEnterParam? param)
     {
         _log.Info("测试主菜单 OnEnter");
+        this.SendEvent(new BgmChangedEvent
+        {
+            BgmType = BgmType.MainMenu,
+        });
     }
 }

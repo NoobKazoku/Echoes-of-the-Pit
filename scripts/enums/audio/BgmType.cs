@@ -18,8 +18,4 @@ public enum BgmType
     /// 游戏进行中背景音乐
     /// </summary>
     Gaming,
-    /// <summary>
-    /// 准备状态背景音乐
-    /// </summary>
-    Ready
 }

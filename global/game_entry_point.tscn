@@ -1,31 +1,6 @@
-[gd_scene load_steps=10 format=3 uid="uid://xrpqu75op8i6"]
+[gd_scene load_steps=2 format=3 uid="uid://xrpqu75op8i6"]
 
 [ext_resource type="Script" uid="uid://7tmuhvthtrnh" path="res://global/GameEntryPoint.cs" id="1_a14y6"]
-[ext_resource type="Script" uid="uid://c4xjcxpbng6qg" path="res://scripts/core/resource/UiPageConfig.cs" id="2_6r7t8"]
-[ext_resource type="PackedScene" uid="uid://b2glwxjn1vymt" path="res://scenes/main_menu/main_menu.tscn" id="2_pn3ws"]
-[ext_resource type="PackedScene" uid="uid://6s2urcdmkpbt" path="res://scenes/main.tscn" id="4_3xsct"]
-[ext_resource type="Script" uid="uid://cl054n3c8n68a" path="res://scripts/core/resource/GameSceneConfig.cs" id="5_7mti7"]
-[ext_resource type="PackedScene" uid="uid://g12cno5w25as" path="res://scenes/shop/shop.tscn" id="6_3xsct"]
-
-[sub_resource type="Resource" id="Resource_l8ju5"]
-script = ExtResource("2_6r7t8")
-Scene = ExtResource("2_pn3ws")
-metadata/_custom_type_script = "uid://c4xjcxpbng6qg"
-
-[sub_resource type="Resource" id="Resource_3xsct"]
-script = ExtResource("2_6r7t8")
-UiKey = 1
-Scene = ExtResource("6_3xsct")
-metadata/_custom_type_script = "uid://c4xjcxpbng6qg"
-
-[sub_resource type="Resource" id="Resource_f22d5"]
-script = ExtResource("5_7mti7")
-SceneKey = 1
-Scene = ExtResource("4_3xsct")
-metadata/_custom_type_script = "uid://cl054n3c8n68a"
 
 [node name="GameEntryPoint" type="Node"]
 script = ExtResource("1_a14y6")
-IsDev = false
-UiPageConfigs = Array[Object]([SubResource("Resource_l8ju5"), SubResource("Resource_3xsct")])
-GameSceneConfigs = Array[Object]([SubResource("Resource_f22d5")])

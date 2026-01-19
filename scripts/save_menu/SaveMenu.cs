@@ -1,12 +1,9 @@
 using System;
-using EchoesOfThePit.scripts.command.game;
-using EchoesOfThePit.scripts.command.game.input;
 using EchoesOfThePit.scripts.component;
 using EchoesOfThePit.scripts.core.ui;
 using EchoesOfThePit.scripts.data;
 using EchoesOfThePit.scripts.enums.ui;
 using EchoesOfThePit.scripts.events.data;
-using EchoesOfThePit.scripts.events.menu;
 using GFramework.Core.Abstractions.controller;
 using GFramework.Core.extensions;
 using GFramework.Game.Abstractions.ui;
@@ -36,6 +33,11 @@ public partial class SaveMenu : Control, IController, IUiPageBehaviorProvider, I
     private Button BackButton => GetNode<Button>("%BackButton");
     private VBoxContainer SlotContainer => GetNode<VBoxContainer>("%SlotContainer");
 
+    /// <summary>
+    ///  Ui Key的字符串形式
+    /// </summary>
+    private static string UiKeyStr => nameof(UiKey.LoadMenu);
+
     public void OnEnter(IUiPageEnterParam? param)
     {
         RefreshAllSlots();
@@ -48,7 +50,7 @@ public partial class SaveMenu : Control, IController, IUiPageBehaviorProvider, I
     /// <returns>返回IUiPageBehavior类型的页面行为实例</returns>
     public IUiPageBehavior GetPage()
     {
-        _page ??= new CanvasItemUiPageBehavior<Control>(this, nameof(UiKey.SaveMenu));
+        _page ??= new CanvasItemUiPageBehavior<Control>(this, UiKeyStr);
         return _page;
     }
 
@@ -59,10 +61,16 @@ public partial class SaveMenu : Control, IController, IUiPageBehaviorProvider, I
 
         InitializeSlots();
         SetupEventHandlers();
-        // 判断是否在栈顶如果不在则入栈
-        if (!_uiRouter.IsTop(nameof(UiKey.SaveMenu)))
+        CallDeferred(nameof(CheckIfInStack));
+    }
+
+    /// <summary>
+    /// 检查当前UI是否在路由栈顶，如果不在则将页面推入路由栈
+    /// </summary>
+    private void CheckIfInStack()
+    {
+        if (!_uiRouter.IsTop(UiKeyStr))
         {
-            _log.Debug($"进入{nameof(UiKey.SaveMenu)}");
             _uiRouter.Push(GetPage());
         }
     }
@@ -148,8 +156,7 @@ public partial class SaveMenu : Control, IController, IUiPageBehaviorProvider, I
 
     private void OnBackPressed()
     {
-        this.SendEvent<CloseSaveMenuEvent>();
-        this.SendCommand(new ResumeGameCommand(new ResumeGameCommandInput { Node = this }));
+        _uiRouter.Pop();
     }
 
     private SaveSlotItem? GetSlotItem(int slot)

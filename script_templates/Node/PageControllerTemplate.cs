@@ -21,6 +21,10 @@ public partial class _CLASS_ :_BASE_,IController,IUiPageBehaviorProvider,IUiPage
     {
         
     }
+    /// <summary>
+    ///  Ui Key的字符串形式 todo：请指定
+    /// </summary>
+    private static string UiKeyStr => "";
 	/// <summary>
     /// 页面行为实例的私有字段
     /// </summary>
@@ -32,10 +36,25 @@ public partial class _CLASS_ :_BASE_,IController,IUiPageBehaviorProvider,IUiPage
     /// <returns>返回IUiPageBehavior类型的页面行为实例</returns>
     public IUiPageBehavior GetPage()
     {
-        _page ??= new CanvasItemUiPageBehavior<_BASE_>(this);
+        _page ??= new CanvasItemUiPageBehavior<_BASE_>(this,UiKeyStr);
         return _page;
     }
-	
+    public override void _Ready()
+    {
+		// 当页面功能完善后该代码可以考虑注释
+	    CallDeferred(nameof(CheckIfInStack));
+    }
+    /// <summary>
+    /// 检查当前UI是否在路由栈顶，如果不在则将页面推入路由栈，请注意这个方法主要用于在开发过程中，启动当前场景时将当前UI推入路由栈
+    /// 页面功能完善后该代码可以考虑注释
+    /// </summary>
+    private void CheckIfInStack()
+    {
+	    if (!_uiRouter.IsTop(UiKeyStr))
+	    {
+		    _uiRouter.Push(GetPage());
+	    }
+    }
     /// <summary>
     /// 页面进入时调用的方法
     /// </summary>

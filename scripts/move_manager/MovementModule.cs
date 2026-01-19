@@ -19,8 +19,10 @@ public class MovementModule : AbstractModule
         // 注册移动相关的模型
         architecture.RegisterModel(new PlayerPositionModel());
         architecture.RegisterModel(new GridStateModel());
+        architecture.RegisterModel(new GridMapModel());
         
         // 注册移动系统
         architecture.RegisterSystem(new MovementSystem());
+        architecture.RegisterSystem(new PathfindingSystem());
     }
 }

@@ -7,7 +7,7 @@ namespace EchoesOfThePit.scripts.move_manager.models;
 /// 玩家位置模型实现
 /// 负责管理玩家在网格上的位置数据
 /// </summary>
-public class PlayerPositionModel : AbstractModel, IPlayerPositionModel
+public partial class PlayerPositionModel : AbstractModel, IPlayerPositionModel
 {
     private Vector2 _position = Vector2.Zero;
 

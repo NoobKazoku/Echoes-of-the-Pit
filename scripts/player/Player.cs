@@ -1,3 +1,5 @@
+using System;
+using System.Collections.Generic;
 using EchoesOfThePit.scripts.move_manager.events;
 using EchoesOfThePit.scripts.move_manager.models;
 using Godot;
@@ -24,6 +26,34 @@ public partial class Player : CharacterBody2D, IController
         // 初始化玩家位置到模型
         var playerPositionModel = this.GetModel<IPlayerPositionModel>()!;
         playerPositionModel.SetPosition(GlobalPosition);
+        
+        // 初始化网格地图模型
+        InitializeGridMapModel();
+    }
+    
+    /// <summary>
+    /// 初始化网格地图模型
+    /// </summary>
+    private void InitializeGridMapModel()
+    {
+        try
+        {
+            var gridMapModel = this.GetModel<IGridMapModel>();
+            if (gridMapModel == null)
+            {
+                _log.Warn("无法获取网格地图模型");
+                return;
+            }
+            
+            // 初始化网格地图模型，直接传递TileMapLayer
+            gridMapModel.Initialize(MoveTileMapLayer);
+            
+            _log.Debug("网格地图模型初始化完成");
+        }
+        catch (Exception ex)
+        {
+            _log.Error("初始化网格地图模型失败: {0}", ex.Message);
+        }
     }
     
     /// <summary>

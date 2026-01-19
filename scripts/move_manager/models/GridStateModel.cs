@@ -8,7 +8,7 @@ namespace EchoesOfThePit.scripts.move_manager.models;
 /// 格子状态模型实现
 /// 负责管理网格中各个格子的状态
 /// </summary>
-public class GridStateModel : AbstractModel, IGridStateModel
+public partial class GridStateModel : AbstractModel, IGridStateModel
 {
     private Dictionary<Vector2, IGridStateModel.GridState> _gridStates = new();
     private List<Vector2> _movableGrids = new();

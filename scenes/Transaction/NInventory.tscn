@@ -1,0 +1,182 @@
+[gd_scene load_steps=2 format=3 uid="uid://cadiuto78sm4w"]
+
+[ext_resource type="PackedScene" uid="uid://bxg644b0631tk" path="res://scenes/Transaction/n_inventory_panel.tscn" id="1_kdguc"]
+
+[node name="NInventory" type="Panel"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 524.0
+offset_top = 331.0
+offset_right = -46.0
+offset_bottom = -49.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 0
+offset_left = -467.0
+offset_top = -4.0
+offset_right = -67.0
+offset_bottom = 696.0
+
+[node name="Panel2" type="Panel" parent="."]
+layout_mode = 0
+offset_left = 38.0
+offset_top = 57.0
+offset_right = 465.0
+offset_bottom = 652.0
+
+[node name="GridContainer" type="GridContainer" parent="."]
+layout_mode = 0
+offset_left = 517.0
+offset_top = 57.0
+offset_right = 1314.0
+offset_bottom = 652.0
+theme_override_constants/h_separation = 11
+theme_override_constants/v_separation = 11
+columns = 8
+
+[node name="NInventoryPanel" parent="GridContainer" instance=ExtResource("1_kdguc")]
+layout_mode = 2
+
+[node name="NInventoryPanel2" parent="GridContainer" instance=ExtResource("1_kdguc")]
+layout_mode = 2
+
+[node name="NInventoryPanel3" parent="GridContainer" instance=ExtResource("1_kdguc")]
+layout_mode = 2
+
+[node name="NInventoryPanel4" parent="GridContainer" instance=ExtResource("1_kdguc")]
+layout_mode = 2
+
+[node name="NInventoryPanel5" parent="GridContainer" instance=ExtResource("1_kdguc")]
+layout_mode = 2
+
+[node name="NInventoryPanel6" parent="GridContainer" instance=ExtResource("1_kdguc")]
+layout_mode = 2
+
+[node name="NInventoryPanel7" parent="GridContainer" instance=ExtResource("1_kdguc")]
+layout_mode = 2
+
+[node name="NInventoryPanel8" parent="GridContainer" instance=ExtResource("1_kdguc")]
+layout_mode = 2
+
+[node name="NInventoryPanel9" parent="GridContainer" instance=ExtResource("1_kdguc")]
+layout_mode = 2
+
+[node name="NInventoryPanel10" parent="GridContainer" instance=ExtResource("1_kdguc")]
+layout_mode = 2
+
+[node name="NInventoryPanel11" parent="GridContainer" instance=ExtResource("1_kdguc")]
+layout_mode = 2
+
+[node name="NInventoryPanel12" parent="GridContainer" instance=ExtResource("1_kdguc")]
+layout_mode = 2
+
+[node name="NInventoryPanel13" parent="GridContainer" instance=ExtResource("1_kdguc")]
+layout_mode = 2
+
+[node name="NInventoryPanel14" parent="GridContainer" instance=ExtResource("1_kdguc")]
+layout_mode = 2
+
+[node name="NInventoryPanel15" parent="GridContainer" instance=ExtResource("1_kdguc")]
+layout_mode = 2
+
+[node name="NInventoryPanel16" parent="GridContainer" instance=ExtResource("1_kdguc")]
+layout_mode = 2
+
+[node name="NInventoryPanel17" parent="GridContainer" instance=ExtResource("1_kdguc")]
+layout_mode = 2
+
+[node name="NInventoryPanel18" parent="GridContainer" instance=ExtResource("1_kdguc")]
+layout_mode = 2
+
+[node name="NInventoryPanel19" parent="GridContainer" instance=ExtResource("1_kdguc")]
+layout_mode = 2
+
+[node name="NInventoryPanel20" parent="GridContainer" instance=ExtResource("1_kdguc")]
+layout_mode = 2
+
+[node name="NInventoryPanel21" parent="GridContainer" instance=ExtResource("1_kdguc")]
+layout_mode = 2
+
+[node name="NInventoryPanel22" parent="GridContainer" instance=ExtResource("1_kdguc")]
+layout_mode = 2
+
+[node name="NInventoryPanel23" parent="GridContainer" instance=ExtResource("1_kdguc")]
+layout_mode = 2
+
+[node name="NInventoryPanel24" parent="GridContainer" instance=ExtResource("1_kdguc")]
+layout_mode = 2
+
+[node name="NInventoryPanel25" parent="GridContainer" instance=ExtResource("1_kdguc")]
+layout_mode = 2
+
+[node name="NInventoryPanel26" parent="GridContainer" instance=ExtResource("1_kdguc")]
+layout_mode = 2
+
+[node name="NInventoryPanel27" parent="GridContainer" instance=ExtResource("1_kdguc")]
+layout_mode = 2
+
+[node name="NInventoryPanel28" parent="GridContainer" instance=ExtResource("1_kdguc")]
+layout_mode = 2
+
+[node name="NInventoryPanel29" parent="GridContainer" instance=ExtResource("1_kdguc")]
+layout_mode = 2
+
+[node name="NInventoryPanel30" parent="GridContainer" instance=ExtResource("1_kdguc")]
+layout_mode = 2
+
+[node name="NInventoryPanel31" parent="GridContainer" instance=ExtResource("1_kdguc")]
+layout_mode = 2
+
+[node name="NInventoryPanel32" parent="GridContainer" instance=ExtResource("1_kdguc")]
+layout_mode = 2
+
+[node name="NInventoryPanel33" parent="GridContainer" instance=ExtResource("1_kdguc")]
+layout_mode = 2
+
+[node name="NInventoryPanel34" parent="GridContainer" instance=ExtResource("1_kdguc")]
+layout_mode = 2
+
+[node name="NInventoryPanel35" parent="GridContainer" instance=ExtResource("1_kdguc")]
+layout_mode = 2
+
+[node name="NInventoryPanel36" parent="GridContainer" instance=ExtResource("1_kdguc")]
+layout_mode = 2
+
+[node name="NInventoryPanel37" parent="GridContainer" instance=ExtResource("1_kdguc")]
+layout_mode = 2
+
+[node name="NInventoryPanel38" parent="GridContainer" instance=ExtResource("1_kdguc")]
+layout_mode = 2
+
+[node name="NInventoryPanel39" parent="GridContainer" instance=ExtResource("1_kdguc")]
+layout_mode = 2
+
+[node name="NInventoryPanel40" parent="GridContainer" instance=ExtResource("1_kdguc")]
+layout_mode = 2
+
+[node name="NInventoryPanel41" parent="GridContainer" instance=ExtResource("1_kdguc")]
+layout_mode = 2
+
+[node name="NInventoryPanel42" parent="GridContainer" instance=ExtResource("1_kdguc")]
+layout_mode = 2
+
+[node name="NInventoryPanel43" parent="GridContainer" instance=ExtResource("1_kdguc")]
+layout_mode = 2
+
+[node name="NInventoryPanel44" parent="GridContainer" instance=ExtResource("1_kdguc")]
+layout_mode = 2
+
+[node name="NInventoryPanel45" parent="GridContainer" instance=ExtResource("1_kdguc")]
+layout_mode = 2
+
+[node name="NInventoryPanel46" parent="GridContainer" instance=ExtResource("1_kdguc")]
+layout_mode = 2
+
+[node name="NInventoryPanel47" parent="GridContainer" instance=ExtResource("1_kdguc")]
+layout_mode = 2
+
+[node name="NInventoryPanel48" parent="GridContainer" instance=ExtResource("1_kdguc")]
+layout_mode = 2

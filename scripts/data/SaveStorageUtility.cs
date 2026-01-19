@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Globalization;
-using System.IO;
 using System.Linq;
 using EchoesOfThePit.scripts.data.interfaces;
 using GFramework.Core.Abstractions.storage;
@@ -25,14 +24,14 @@ public class SaveStorageUtility : AbstractContextUtility, ISaveStorageUtility
     /// 存档文件夹的路径，保存在用户目录下的saves文件
     /// </summary>
     private static readonly string SaveRoot =
-        ProjectSettings.GetSetting("application/config/save/setting_path").AsString();
+        ProjectSettings.GetSetting("application/config/save/save_path").AsString();
 
     private IStorage _rootStorage = null!;
 
     /// <summary>
     /// 获取存档文件路径
     /// </summary>
-    private static string SaveFilePath => Path.Combine(SaveRoot, SaveFileName);
+    private static string SaveFilePath => SaveFileName;
 
     /// <summary>
     /// 检查指定槽位是否存在存档
@@ -64,6 +63,12 @@ public class SaveStorageUtility : AbstractContextUtility, ISaveStorageUtility
     public void Save(int slot, GameSaveData data)
     {
         data.RuntimeDirty = false;
+        var slotDir = $"{SaveRoot}/{SaveSlotPrefix}{slot}";
+        if (!DirAccess.DirExistsAbsolute(slotDir))
+        {
+            DirAccess.MakeDirRecursiveAbsolute(slotDir);
+        }
+
         SlotStorage(slot).Write(SaveFilePath, data);
     }
 
@@ -112,6 +117,11 @@ public class SaveStorageUtility : AbstractContextUtility, ISaveStorageUtility
     {
         // 拿到全局 IStorage（GodotFileStorage）
         var baseStorage = this.GetUtility<IStorage>()!;
+        // ✅ 确保存档根目录存在
+        if (!DirAccess.DirExistsAbsolute(SaveRoot))
+        {
+            DirAccess.MakeDirRecursiveAbsolute(SaveRoot);
+        }
 
         _rootStorage = new ScopedStorage(baseStorage, SaveRoot);
     }

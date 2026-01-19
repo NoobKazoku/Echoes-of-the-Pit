@@ -19,14 +19,14 @@
           <PrivateAssets>all</PrivateAssets>
           <IncludeAssets>runtime; build; native; contentfiles; analyzers</IncludeAssets>
         </PackageReference>
-        <PackageReference Update="Meziantou.Polyfill" Version="1.0.84">
+        <PackageReference Update="Meziantou.Polyfill" Version="1.0.99">
           <PrivateAssets>all</PrivateAssets>
           <IncludeAssets>runtime; build; native; contentfiles; analyzers</IncludeAssets>
         </PackageReference>
-        <PackageReference Include="GeWuYou.GFramework" Version="0.0.121"/>
-        <PackageReference Include="GeWuYou.GFramework.Godot" Version="0.0.121"/>
-        <PackageReference Include="GeWuYou.GFramework.Godot.SourceGenerators" Version="0.0.121"/>
-        <PackageReference Include="GeWuYou.GFramework.SourceGenerators" Version="0.0.121"/>
+        <PackageReference Include="GeWuYou.GFramework" Version="0.0.126"/>
+        <PackageReference Include="GeWuYou.GFramework.Godot" Version="0.0.126"/>
+        <PackageReference Include="GeWuYou.GFramework.Godot.SourceGenerators" Version="0.0.126"/>
+        <PackageReference Include="GeWuYou.GFramework.SourceGenerators" Version="0.0.126"/>
     </ItemGroup>
     <ItemGroup>
         <Content Include=".github\workflows\auto-tag.yml"/>
@@ -36,7 +36,6 @@
       <Folder Include="scripts\command\audio\input\" />
       <Folder Include="scripts\command\graphics\input\" />
       <Folder Include="scripts\command\setting\input\" />
-        <Folder Include="scripts\pause_menu\"/>
         <Folder Include="scripts\shop\"/>
       <Folder Include="scripts\tests\" />
     </ItemGroup>

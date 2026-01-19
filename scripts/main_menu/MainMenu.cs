@@ -1,6 +1,5 @@
 using EchoesOfThePit.scripts.enums.ui;
 using GFramework.Core.Abstractions.controller;
-using GFramework.Core.extensions;
 using GFramework.Game.Abstractions.ui;
 using GFramework.Godot.ui;
 using GFramework.SourceGenerators.Abstractions.logging;
@@ -71,7 +70,7 @@ public partial class MainMenu : Control, IController, IUiPageBehaviorProvider, I
     /// <returns>返回IUiPageBehavior类型的页面行为实例</returns>
     public IUiPageBehavior GetPage()
     {
-        _page ??= new CanvasItemUiPageBehavior<Control>(this);
+        _page ??= new CanvasItemUiPageBehavior<Control>(this, nameof(UiKey.MainMenu));
         return _page;
     }
 

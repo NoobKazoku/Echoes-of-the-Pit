@@ -58,7 +58,7 @@ theme/custom="uid://drg0lvsgoqfsc"
 
 [layer_names]
 
-2d_physics/layer_1="玩家"
+2d_physics/layer_1="角色"
 2d_physics/layer_2="移动格"
 
 [rendering]

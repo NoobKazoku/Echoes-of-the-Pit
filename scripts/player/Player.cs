@@ -1,41 +1,66 @@
+using EchoesOfThePit.scripts.move_manager.events;
+using EchoesOfThePit.scripts.move_manager.models;
 using Godot;
 using GFramework.Core.Abstractions.controller;
+using GFramework.Core.extensions;
 using GFramework.SourceGenerators.Abstractions.logging;
 using GFramework.SourceGenerators.Abstractions.rule;
 
-
 [ContextAware]
 [Log]
-public partial class Player :CharacterBody2D,IController
+public partial class Player : CharacterBody2D, IController
 {
-	private TileMapLayer MoveTileMapLayer => GetNode<TileMapLayer>("%MoveTileMapLayer");
-	/// <summary>
-	/// 节点准备就绪时的回调方法
-	/// 在节点添加到场景树后调用
-	/// </summary>
-	public override void _Ready()
-	{
-		
-	}
-
-	/// <summary>
-	/// 移动玩家到相邻格子
-	/// </summary>
-	public void MoveToGrid(Grid grid)
-	{
-		if ((grid.GlobalPosition - GlobalPosition).Length() != 64)
-		{
-			_log.Debug("目标格子不在移动范围内，无法移动");
-			return;
-		}
-		else
-		{
-			GlobalPosition = grid.GlobalPosition;
-			_log.Debug("玩家移动到格子({0},{1})",GlobalPosition.X,GlobalPosition.Y);
-
-		}
-
-	}
+    private TileMapLayer MoveTileMapLayer => GetNode<TileMapLayer>("%MoveTileMapLayer");
+    
+    /// <summary>
+    /// 节点准备就绪时的回调方法
+    /// 在节点添加到场景树后调用
+    /// </summary>
+    public override void _Ready()
+    {
+        // 注册玩家移动事件监听
+        this.RegisterEvent<PlayerMovedEvent>(OnPlayerMoved);
+        
+        // 初始化玩家位置到模型
+        var playerPositionModel = this.GetModel<IPlayerPositionModel>()!;
+        playerPositionModel.SetPosition(GlobalPosition);
+    }
+    
+    /// <summary>
+    /// 处理玩家移动事件
+    /// </summary>
+    /// <param name="e">玩家移动事件</param>
+    private void OnPlayerMoved(PlayerMovedEvent e)
+    {
+        // 使用补间动画平滑移动到新位置
+        var tween = CreateTween();
+        tween.TweenProperty(this, "global_position", e.TargetPosition, 0.2f);
+        
+        _log.Debug("玩家移动到新位置({0},{1})", e.TargetPosition.X, e.TargetPosition.Y);
+    }
+    
+    /// <summary>
+    /// 移动玩家到相邻格子（旧方法，保留兼容性）
+    /// 注意：现在应该使用Command来执行移动操作
+    /// </summary>
+    /// <param name="grid">目标格子</param>
+    public void MoveToGrid(Grid grid)
+    {
+        // 检查移动距离是否为64像素
+        if ((grid.GlobalPosition - GlobalPosition).Length() != 64)
+        {
+            _log.Debug("目标格子不在移动范围内，无法移动");
+            return;
+        }
+        
+        // 创建移动命令输入
+        var moveInput = new EchoesOfThePit.scripts.move_manager.commands.MovePlayerCommandInput
+        {
+            TargetPosition = grid.GlobalPosition,
+            Grid = grid
+        };
+        
+        // 发送移动命令
+        this.SendCommand(new EchoesOfThePit.scripts.move_manager.commands.MovePlayerCommand(moveInput));
+    }
 }
-
-

@@ -1,4 +1,5 @@
 using EchoesOfThePit.scripts.module;
+using EchoesOfThePit.scripts.move_manager;
 using GFramework.Core.Abstractions.architecture;
 using GFramework.Core.Abstractions.environment;
 using GFramework.Godot.architecture;
@@ -27,5 +28,7 @@ public sealed class GameArchitecture(IArchitectureConfiguration configuration, I
         InstallModule(new UtilityModule());
         // 安装状态相关的Godot模块
         InstallModule(new StateModule());
+        // 安装移动系统相关的Godot模块
+        InstallModule(new MovementModule());
     }
 }

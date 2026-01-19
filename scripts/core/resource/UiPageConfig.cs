@@ -1,4 +1,4 @@
-﻿using EchoesOfThePit.scripts.enums.ui;
+using EchoesOfThePit.scripts.enums.ui;
 using GFramework.Core.Abstractions.bases;
 using Godot;
 
@@ -10,23 +10,23 @@ namespace EchoesOfThePit.scripts.core.resource;
 [GlobalClass]
 public partial class UiPageConfig : Resource,IKeyValue<string,PackedScene>
 {
-    /// <summary>
-    /// 获取或设置UI界面的唯一标识键
-    /// </summary>
-    [Export] public UiKey UiKey { get; set; }
+	/// <summary>
+	/// 获取或设置UI界面的唯一标识键
+	/// </summary>
+	[Export] public UiKey UiKey { get; set; }
 
-    /// <summary>
-    /// 获取或设置UI界面对应的场景资源
-    /// </summary>
-    [Export] public PackedScene Scene { get; set; } = null!;
+	/// <summary>
+	/// 获取或设置UI界面对应的场景资源
+	/// </summary>
+	[Export] public PackedScene Scene { get; set; } = null!;
 
-    /// <summary>
-    /// 获取UI键的名称作为键值对的键
-    /// </summary>
-    public string Key => UiKey.ToString();
+	/// <summary>
+	/// 获取UI键的名称作为键值对的键
+	/// </summary>
+	public string Key => UiKey.ToString();
 
-    /// <summary>
-    /// 获取场景资源作为键值对的值
-    /// </summary>
-    public PackedScene Value => Scene;
+	/// <summary>
+	/// 获取场景资源作为键值对的值
+	/// </summary>
+	public PackedScene Value => Scene;
 }

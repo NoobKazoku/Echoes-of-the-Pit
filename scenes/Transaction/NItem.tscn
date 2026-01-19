@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://cvichv74vje46"]
+
+[ext_resource type="Script" uid="uid://bny2mxeac1yqt" path="res://scripts/trade/NItem.cs" id="1_s1ov4"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_tqkyy"]
+radius = 30.0
+
+[node name="NItem" type="Area2D"]
+script = ExtResource("1_s1ov4")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_tqkyy")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_left = -39.0
+offset_top = -38.0
+offset_right = 41.0
+offset_bottom = 42.0
+rotation = 0.004596826

@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="CDrugItem" load_steps=2 format=3 uid="uid://dsf5qux2qi0i3"]
+
+[ext_resource type="Script" uid="uid://ce31x4o66hc7t" path="res://scripts/trade/CDrugItem.cs" id="1_cyh1k"]
+
+[resource]
+resource_local_to_scene = true
+script = ExtResource("1_cyh1k")
+mHealthRestore = 16
+mManaRestore = 4
+mName = "面包"
+mImg = "uid://bgfymwn5rb7y3"
+mMoney = 10
+metadata/_custom_type_script = "uid://ce31x4o66hc7t"

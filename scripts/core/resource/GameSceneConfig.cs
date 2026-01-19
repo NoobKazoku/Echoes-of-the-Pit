@@ -1,4 +1,4 @@
-﻿using EchoesOfThePit.scripts.enums.game;
+using EchoesOfThePit.scripts.enums.game;
 using GFramework.Core.Abstractions.bases;
 using Godot;
 
@@ -9,23 +9,23 @@ namespace EchoesOfThePit.scripts.core.resource;
 [GlobalClass]
 public partial class GameSceneConfig : Resource,IKeyValue<string,PackedScene>
 {
-    /// <summary>
-    /// 获取或设置游戏场景的唯一标识键
-    /// </summary>
-    [Export] public GameSceneKey SceneKey { get; set; }
+	/// <summary>
+	/// 获取或设置游戏场景的唯一标识键
+	/// </summary>
+	[Export] public GameSceneKey SceneKey { get; set; }
 
-    /// <summary>
-    /// 获取或设置游戏场景的打包场景资源
-    /// </summary>
-    [Export] public PackedScene Scene { get; set; } = null!;
+	/// <summary>
+	/// 获取或设置游戏场景的打包场景资源
+	/// </summary>
+	[Export] public PackedScene Scene { get; set; } = null!;
 
-    /// <summary>
-    /// 获取场景键的字符串表示形式
-    /// </summary>
-    public string Key => SceneKey.ToString();
-    
-    /// <summary>
-    /// 获取场景资源值
-    /// </summary>
-    public PackedScene Value=> Scene;
+	/// <summary>
+	/// 获取场景键的字符串表示形式
+	/// </summary>
+	public string Key => SceneKey.ToString();
+	
+	/// <summary>
+	/// 获取场景资源值
+	/// </summary>
+	public PackedScene Value=> Scene;
 }

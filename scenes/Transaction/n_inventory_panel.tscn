@@ -1,4 +1,6 @@
-[gd_scene load_steps=2 format=3 uid="uid://bxg644b0631tk"]
+[gd_scene load_steps=3 format=3 uid="uid://bxg644b0631tk"]
+
+[ext_resource type="Script" uid="uid://ddjubdg5je7sw" path="res://scripts/trade/NInventoryPanel.cs" id="1_vjugi"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_a2rkl"]
 bg_color = Color(0.2051174, 0.20511746, 0.20511732, 1)
@@ -24,3 +26,4 @@ offset_bottom = -993.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_a2rkl")
+script = ExtResource("1_vjugi")

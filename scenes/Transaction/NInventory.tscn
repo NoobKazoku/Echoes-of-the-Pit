@@ -1,13 +1,16 @@
-[gd_scene load_steps=2 format=3 uid="uid://cadiuto78sm4w"]
+[gd_scene load_steps=5 format=3 uid="uid://cadiuto78sm4w"]
 
 [ext_resource type="PackedScene" uid="uid://bxg644b0631tk" path="res://scenes/Transaction/n_inventory_panel.tscn" id="1_kdguc"]
+[ext_resource type="PackedScene" uid="uid://cvichv74vje46" path="res://scenes/Transaction/NItem.tscn" id="2_h5ens"]
+[ext_resource type="Resource" uid="uid://dsf5qux2qi0i3" path="res://scripts/trade/Materialresources/血瓶测试.tres" id="3_auy1u"]
+[ext_resource type="Resource" uid="uid://d3srxky6akuhx" path="res://scripts/trade/Materialresources/武器测试.tres" id="4_12t7t"]
 
 [node name="NInventory" type="Panel"]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = 524.0
-offset_top = 331.0
+offset_top = 323.0
 offset_right = -46.0
 offset_bottom = -49.0
 grow_horizontal = 2
@@ -20,19 +23,71 @@ offset_top = -4.0
 offset_right = -67.0
 offset_bottom = 696.0
 
+[node name="RichTextLabel" type="RichTextLabel" parent="Panel"]
+layout_mode = 0
+offset_right = 400.0
+offset_bottom = 700.0
+theme_override_font_sizes/normal_font_size = 30
+theme_override_font_sizes/bold_font_size = 20
+theme_override_font_sizes/bold_italics_font_size = 20
+theme_override_font_sizes/italics_font_size = 20
+theme_override_font_sizes/mono_font_size = 16
+bbcode_enabled = true
+text = "[color=green]血量+100[/color]
+[color=#ffffff88]力量+10[/color]
+
+"
+autowrap_mode = 2
+horizontal_alignment = 1
+
 [node name="Panel2" type="Panel" parent="."]
 layout_mode = 0
 offset_left = 38.0
-offset_top = 57.0
+offset_top = 83.0
 offset_right = 465.0
-offset_bottom = 652.0
+offset_bottom = 678.0
+
+[node name="NInventoryPanel" parent="Panel2" instance=ExtResource("1_kdguc")]
+layout_mode = 1
+offset_left = 165.0
+offset_top = 90.0
+offset_right = -172.0
+offset_bottom = -415.0
+
+[node name="NInventoryPanel5" parent="Panel2" instance=ExtResource("1_kdguc")]
+layout_mode = 1
+offset_left = 255.0
+offset_top = 393.0
+offset_right = -82.0
+offset_bottom = -112.0
+
+[node name="NInventoryPanel2" parent="Panel2" instance=ExtResource("1_kdguc")]
+layout_mode = 1
+offset_left = 82.0
+offset_top = 393.0
+offset_right = -255.0
+offset_bottom = -112.0
+
+[node name="NInventoryPanel3" parent="Panel2" instance=ExtResource("1_kdguc")]
+layout_mode = 1
+offset_left = 310.0
+offset_top = 202.0
+offset_right = -27.0
+offset_bottom = -303.0
+
+[node name="NInventoryPanel4" parent="Panel2" instance=ExtResource("1_kdguc")]
+layout_mode = 1
+offset_left = 25.0
+offset_top = 202.0
+offset_right = -312.0
+offset_bottom = -303.0
 
 [node name="GridContainer" type="GridContainer" parent="."]
 layout_mode = 0
 offset_left = 517.0
-offset_top = 57.0
+offset_top = 83.0
 offset_right = 1314.0
-offset_bottom = 652.0
+offset_bottom = 678.0
 theme_override_constants/h_separation = 11
 theme_override_constants/v_separation = 11
 columns = 8
@@ -40,11 +95,17 @@ columns = 8
 [node name="NInventoryPanel" parent="GridContainer" instance=ExtResource("1_kdguc")]
 layout_mode = 2
 
+[node name="NItem" parent="GridContainer/NInventoryPanel" instance=ExtResource("2_h5ens")]
+mItem = ExtResource("3_auy1u")
+
 [node name="NInventoryPanel2" parent="GridContainer" instance=ExtResource("1_kdguc")]
 layout_mode = 2
 
 [node name="NInventoryPanel3" parent="GridContainer" instance=ExtResource("1_kdguc")]
 layout_mode = 2
+
+[node name="NItem" parent="GridContainer/NInventoryPanel3" instance=ExtResource("2_h5ens")]
+mItem = ExtResource("4_12t7t")
 
 [node name="NInventoryPanel4" parent="GridContainer" instance=ExtResource("1_kdguc")]
 layout_mode = 2
@@ -180,3 +241,38 @@ layout_mode = 2
 
 [node name="NInventoryPanel48" parent="GridContainer" instance=ExtResource("1_kdguc")]
 layout_mode = 2
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 38.0
+offset_top = 22.0
+offset_right = 158.0
+offset_bottom = 70.0
+theme_override_font_sizes/font_size = 30
+text = "金钱:"
+
+[node name="Label4" type="Label" parent="."]
+layout_mode = 0
+offset_left = 120.0
+offset_top = 22.0
+offset_right = 240.0
+offset_bottom = 70.0
+theme_override_font_sizes/font_size = 30
+text = "648"
+
+[node name="Label2" type="Label" parent="."]
+layout_mode = 0
+offset_left = 327.0
+offset_top = 22.0
+offset_right = 471.0
+offset_bottom = 70.0
+theme_override_font_sizes/font_size = 30
+text = "钻石："
+
+[node name="Label3" type="Label" parent="."]
+layout_mode = 0
+offset_left = 809.0
+offset_top = 22.0
+offset_right = 953.0
+offset_bottom = 70.0
+text = "角色名"

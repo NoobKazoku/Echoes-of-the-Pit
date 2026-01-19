@@ -1,7 +1,16 @@
-[gd_scene load_steps=3 format=3 uid="uid://dngneq20rrrn4"]
+[gd_scene load_steps=6 format=3 uid="uid://dngneq20rrrn4"]
 
 [ext_resource type="PackedScene" uid="uid://yd2jo4bddl1v" path="res://scenes/component/setting_volume_container.tscn" id="1_08d7r"]
 [ext_resource type="Script" uid="uid://bd5ygagdx528e" path="res://scripts/options/Options.cs" id="1_qe4tn"]
+[ext_resource type="Texture2D" uid="uid://bewx2tttixiin" path="res://assets/art/UI_1.png" id="2_kmbin"]
+[ext_resource type="Theme" uid="uid://drg0lvsgoqfsc" path="res://resource/theme/project_theme.tres" id="3_025dt"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_025dt"]
+texture = ExtResource("2_kmbin")
+texture_margin_left = 64.0
+texture_margin_top = 64.0
+texture_margin_right = 64.0
+texture_margin_bottom = 64.0
 
 [node name="Options" type="Control"]
 layout_mode = 3
@@ -24,7 +33,7 @@ mouse_filter = 2
 color = Color(0, 0, 0, 0.5254902)
 
 [node name="Panel" type="Panel" parent="."]
-custom_minimum_size = Vector2(720, 680)
+custom_minimum_size = Vector2(800, 720)
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -37,6 +46,7 @@ offset_right = 240.0
 offset_bottom = 180.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_025dt")
 
 [node name="MarginContainer" type="MarginContainer" parent="Panel"]
 layout_mode = 1
@@ -46,7 +56,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/margin_left = 4
-theme_override_constants/margin_top = 4
+theme_override_constants/margin_top = 48
 theme_override_constants/margin_right = 4
 theme_override_constants/margin_bottom = 4
 
@@ -67,7 +77,8 @@ theme_override_constants/separation = 19
 [node name="Title" type="Label" parent="Panel/MarginContainer/HBoxContainer/MarginContainer/HBoxContainer"]
 custom_minimum_size = Vector2(180, 48)
 layout_mode = 2
-size_flags_horizontal = 0
+size_flags_horizontal = 4
+theme = ExtResource("3_025dt")
 text = "设置"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -84,6 +95,7 @@ theme_override_constants/separation = 9
 [node name="Title" type="Label" parent="Panel/MarginContainer/HBoxContainer/MarginContainer/HBoxContainer/Audio"]
 custom_minimum_size = Vector2(20, 32)
 layout_mode = 2
+theme = ExtResource("3_025dt")
 theme_override_font_sizes/font_size = 32
 text = "声音"
 horizontal_alignment = 1
@@ -91,6 +103,7 @@ vertical_alignment = 1
 
 [node name="MarginContainer" type="MarginContainer" parent="Panel/MarginContainer/HBoxContainer/MarginContainer/HBoxContainer/Audio"]
 layout_mode = 2
+theme = ExtResource("3_025dt")
 theme_override_constants/margin_left = 105
 theme_override_constants/margin_right = 105
 
@@ -100,6 +113,7 @@ layout_mode = 2
 
 [node name="MarginContainer2" type="MarginContainer" parent="Panel/MarginContainer/HBoxContainer/MarginContainer/HBoxContainer/Audio"]
 layout_mode = 2
+theme = ExtResource("3_025dt")
 theme_override_constants/margin_left = 105
 theme_override_constants/margin_right = 105
 
@@ -109,6 +123,7 @@ layout_mode = 2
 
 [node name="MarginContainer3" type="MarginContainer" parent="Panel/MarginContainer/HBoxContainer/MarginContainer/HBoxContainer/Audio"]
 layout_mode = 2
+theme = ExtResource("3_025dt")
 theme_override_constants/margin_left = 105
 theme_override_constants/margin_right = 105
 
@@ -123,6 +138,7 @@ theme_override_constants/separation = 9
 [node name="Title" type="Label" parent="Panel/MarginContainer/HBoxContainer/MarginContainer/HBoxContainer/Graphics"]
 custom_minimum_size = Vector2(20, 32)
 layout_mode = 2
+theme = ExtResource("3_025dt")
 theme_override_font_sizes/font_size = 32
 text = "图形"
 horizontal_alignment = 1
@@ -139,6 +155,7 @@ layout_mode = 2
 [node name="FullscreenLabel" type="Label" parent="Panel/MarginContainer/HBoxContainer/MarginContainer/HBoxContainer/Graphics/MarginContainer/FullscreenContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
+theme = ExtResource("3_025dt")
 text = "全屏模式"
 
 [node name="FullscreenOptionButton" type="OptionButton" parent="Panel/MarginContainer/HBoxContainer/MarginContainer/HBoxContainer/Graphics/MarginContainer/FullscreenContainer"]
@@ -160,6 +177,7 @@ theme_override_constants/separation = 40
 [node name="ResolutionLabel" type="Label" parent="Panel/MarginContainer/HBoxContainer/MarginContainer/HBoxContainer/Graphics/MarginContainer2/ResolutionContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
+theme = ExtResource("3_025dt")
 text = "分辨率"
 
 [node name="ResolutionOptionButton" type="OptionButton" parent="Panel/MarginContainer/HBoxContainer/MarginContainer/HBoxContainer/Graphics/MarginContainer2/ResolutionContainer"]
@@ -175,6 +193,7 @@ theme_override_constants/separation = 9
 [node name="Title" type="Label" parent="Panel/MarginContainer/HBoxContainer/MarginContainer/HBoxContainer/Localization"]
 custom_minimum_size = Vector2(20, 32)
 layout_mode = 2
+theme = ExtResource("3_025dt")
 theme_override_font_sizes/font_size = 32
 text = "本地化"
 horizontal_alignment = 1
@@ -191,6 +210,7 @@ layout_mode = 2
 [node name="LanguageLabel" type="Label" parent="Panel/MarginContainer/HBoxContainer/MarginContainer/HBoxContainer/Localization/MarginContainer/LanguageContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
+theme = ExtResource("3_025dt")
 text = "语言"
 
 [node name="LanguageOptionButton" type="OptionButton" parent="Panel/MarginContainer/HBoxContainer/MarginContainer/HBoxContainer/Localization/MarginContainer/LanguageContainer"]
@@ -205,5 +225,6 @@ unique_name_in_owner = true
 custom_minimum_size = Vector2(128, 0)
 layout_mode = 2
 size_flags_horizontal = 4
+theme = ExtResource("3_025dt")
 theme_override_font_sizes/font_size = 32
 text = "退出"

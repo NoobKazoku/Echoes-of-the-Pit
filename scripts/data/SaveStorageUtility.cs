@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Globalization;
+using System.IO;
 using System.Linq;
 using EchoesOfThePit.scripts.data.interfaces;
 using GFramework.Core.Abstractions.storage;
@@ -31,7 +32,7 @@ public class SaveStorageUtility : AbstractContextUtility, ISaveStorageUtility
     /// <summary>
     /// 获取存档文件路径
     /// </summary>
-    private static string SaveFilePath => SaveFileName;
+    private static string SaveFilePath => Path.Combine(SaveRoot, SaveFileName);
 
     /// <summary>
     /// 检查指定槽位是否存在存档

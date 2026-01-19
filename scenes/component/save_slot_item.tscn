@@ -1,0 +1,55 @@
+[gd_scene load_steps=2 format=3 uid="uid://0wmexdyug5ix"]
+
+[ext_resource type="Script" uid="uid://dimldmifs3h6m" path="res://scripts/component/SaveSlotItem.cs" id="1_abcde"]
+
+[node name="SaveSlotItem" type="HBoxContainer"]
+custom_minimum_size = Vector2(0, 80)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_abcde")
+
+[node name="InfoContainer" type="VBoxContainer" parent="."]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+size_flags_stretch_ratio = 3.0
+
+[node name="SlotLabel" type="Label" parent="InfoContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 32
+text = "槽位 1"
+
+[node name="TimeLabel" type="Label" parent="InfoContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0.7, 0.7, 0.7, 1)
+theme_override_font_sizes/font_size = 24
+text = "空槽位"
+
+[node name="ButtonContainer" type="HBoxContainer" parent="."]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+
+[node name="ActionButton" type="Button" parent="ButtonContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(120, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 24
+text = "保存"
+
+[node name="DeleteButton" type="Button" parent="ButtonContainer"]
+unique_name_in_owner = true
+visible = false
+custom_minimum_size = Vector2(120, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 24
+text = "删除"

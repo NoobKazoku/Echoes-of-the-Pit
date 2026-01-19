@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+using System;
+using System.Collections.Generic;
 using Newtonsoft.Json;
 
 namespace EchoesOfThePit.scripts.data;
@@ -17,6 +18,16 @@ public class GameSaveData
     /// 存档版本号，用于处理不同版本间的兼容性
     /// </summary>
     public int Version { get; set; } = 1;
+
+    /// <summary>
+    /// 存档时间，记录最后保存的时间
+    /// </summary>
+    public DateTime SaveTime { get; set; } = DateTime.Now;
+
+    /// <summary>
+    /// 槽位描述，用于在UI中显示额外信息
+    /// </summary>
+    public string SlotDescription { get; set; } = string.Empty;
 
     /// <summary>
     /// 运行时脏标记，用于标识存档数据是否被修改过

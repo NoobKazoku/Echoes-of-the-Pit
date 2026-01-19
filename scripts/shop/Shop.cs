@@ -1,4 +1,5 @@
 using EchoesOfThePit.scripts.core.ui;
+using EchoesOfThePit.scripts.enums.ui;
 using GFramework.Core.Abstractions.controller;
 using GFramework.Game.Abstractions.ui;
 using GFramework.Godot.ui;
@@ -31,7 +32,7 @@ public partial class Shop : Control, IController, IUiPageBehaviorProvider, ISimp
     /// <returns>返回IUiPageBehavior类型的页面行为实例</returns>
     public IUiPageBehavior GetPage()
     {
-        _page ??= new CanvasItemUiPageBehavior<Control>(this);
+        _page ??= new CanvasItemUiPageBehavior<Control>(this, nameof(UiKey.Shop));
         return _page;
     }
 

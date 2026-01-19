@@ -1,0 +1,100 @@
+[gd_scene load_steps=4 format=3 uid="uid://cnbqa4o1umr7j"]
+
+[ext_resource type="Script" uid="uid://yf6gtgm5cgxf" path="res://scripts/load_menu/LoadMenu.cs" id="1_df2ov"]
+[ext_resource type="PackedScene" uid="uid://0wmexdyug5ix" path="res://scenes/component/save_slot_item.tscn" id="2_yo27f"]
+[ext_resource type="PackedScene" path="res://scenes/component/confirmation_dialog.tscn" id="3_jwr0c"]
+
+[node name="LoadMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_df2ov")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.5)
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -400.0
+offset_top = -360.0
+offset_right = 400.0
+offset_bottom = 360.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="TitleLabel" type="Label" parent="Panel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 48
+text = "读取"
+horizontal_alignment = 1
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Panel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 10.0
+
+[node name="SlotContainer" type="VBoxContainer" parent="Panel/MarginContainer/VBoxContainer/ScrollContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Slot1" parent="Panel/MarginContainer/VBoxContainer/ScrollContainer/SlotContainer" instance=ExtResource("2_yo27f")]
+layout_mode = 2
+
+[node name="Slot2" parent="Panel/MarginContainer/VBoxContainer/ScrollContainer/SlotContainer" instance=ExtResource("2_yo27f")]
+layout_mode = 2
+
+[node name="Slot3" parent="Panel/MarginContainer/VBoxContainer/ScrollContainer/SlotContainer" instance=ExtResource("2_yo27f")]
+layout_mode = 2
+
+[node name="Slot4" parent="Panel/MarginContainer/VBoxContainer/ScrollContainer/SlotContainer" instance=ExtResource("2_yo27f")]
+layout_mode = 2
+
+[node name="Slot5" parent="Panel/MarginContainer/VBoxContainer/ScrollContainer/SlotContainer" instance=ExtResource("2_yo27f")]
+layout_mode = 2
+
+[node name="BackButton" type="Button" parent="Panel/MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(200, 60)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 32
+text = "返回"
+
+[node name="ConfirmationDialog" parent="." instance=ExtResource("3_jwr0c")]
+visible = false
+layout_mode = 1

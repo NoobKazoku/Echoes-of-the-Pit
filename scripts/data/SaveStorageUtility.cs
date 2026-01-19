@@ -18,6 +18,7 @@ namespace EchoesOfThePit.scripts.data;
 public class SaveStorageUtility : AbstractContextUtility, ISaveStorageUtility
 {
     private const string SaveFileName = "save.json";
+    private const string SaveSlotPrefix = "slot_";
 
     /// <summary>
     /// 存档文件夹的路径，保存在用户目录下的saves文件
@@ -92,8 +93,8 @@ public class SaveStorageUtility : AbstractContextUtility, ISaveStorageUtility
             var name = dir.GetNext();
             if (string.IsNullOrEmpty(name)) break;
             if (!dir.CurrentIsDir()) continue;
-            if (!name.StartsWith("slot_", StringComparison.Ordinal)) continue;
-            if (!int.TryParse(name.AsSpan("slot_".Length), CultureInfo.InvariantCulture, out var slot)) continue;
+            if (!name.StartsWith(SaveSlotPrefix, StringComparison.Ordinal)) continue;
+            if (!int.TryParse(name.AsSpan(SaveSlotPrefix.Length), CultureInfo.InvariantCulture, out var slot)) continue;
             var storage = SlotStorage(slot);
             if (storage.Exists(SaveFilePath))
                 result.Add(slot);
@@ -120,5 +121,5 @@ public class SaveStorageUtility : AbstractContextUtility, ISaveStorageUtility
     /// <param name="slot">存档槽位编号</param>
     /// <returns>对应槽位的存储对象</returns>
     private IStorage SlotStorage(int slot)
-        => new ScopedStorage(_rootStorage, $"slot_{slot}");
+        => new ScopedStorage(_rootStorage, string.Format(CultureInfo.InvariantCulture, "{0}{1}", SaveSlotPrefix, slot));
 }

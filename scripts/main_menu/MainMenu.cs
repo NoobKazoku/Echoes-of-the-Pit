@@ -1,5 +1,6 @@
 using EchoesOfThePit.scripts.enums.ui;
 using GFramework.Core.Abstractions.controller;
+using GFramework.Core.extensions;
 using GFramework.Game.Abstractions.ui;
 using GFramework.Godot.ui;
 using GFramework.SourceGenerators.Abstractions.logging;

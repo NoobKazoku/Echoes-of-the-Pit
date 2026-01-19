@@ -2,6 +2,7 @@ using System.Globalization;
 using EchoesOfThePit.scripts.data;
 using EchoesOfThePit.scripts.events.data;
 using GFramework.Core.Abstractions.controller;
+using GFramework.Core.extensions;
 using GFramework.SourceGenerators.Abstractions.logging;
 using GFramework.SourceGenerators.Abstractions.rule;
 using Godot;

@@ -16,6 +16,7 @@ public sealed partial class MovementSystem : AbstractSystem, IMovementSystem
 {
     private IPlayerPositionModel _playerPositionModel = null!;
     private IGridStateModel _gridStateModel = null!;
+    private IGridMapModel _gridMapModel = null!;
     
     /// <summary>
     /// 移动距离（格子大小），默认为64像素
@@ -29,6 +30,7 @@ public sealed partial class MovementSystem : AbstractSystem, IMovementSystem
     {
         _playerPositionModel = this.GetModel<IPlayerPositionModel>()!;
         _gridStateModel = this.GetModel<IGridStateModel>()!;
+        _gridMapModel = this.GetModel<IGridMapModel>()!;
         
         _log.Info("MovementSystem 初始化完成！");
     }
@@ -66,10 +68,10 @@ public sealed partial class MovementSystem : AbstractSystem, IMovementSystem
             return false;
         }
 
-        // 检查目标位置是否有效
-        if (!_playerPositionModel.IsValidPosition(toPosition))
+        // 检查目标位置是否有效（使用网格地图模型验证位置是否在网格中）
+        if (!_gridMapModel.IsValidGridPosition(toPosition))
         {
-            _log.Warn("移动失败: 目标位置无效");
+            _log.Warn("移动失败: 目标位置不在网格地图中");
             return false;
         }
 

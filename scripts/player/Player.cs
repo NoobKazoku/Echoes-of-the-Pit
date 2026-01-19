@@ -13,6 +13,7 @@ using GFramework.SourceGenerators.Abstractions.rule;
 public partial class Player : CharacterBody2D, IController
 {
     private TileMapLayer MoveTileMapLayer => GetNode<TileMapLayer>("%MoveTileMapLayer");
+    private AnimatedSprite2D PlayerSprite => GetNode<AnimatedSprite2D>("%AnimatedSprite2D");
     
     /// <summary>
     /// 节点准备就绪时的回调方法
@@ -65,6 +66,9 @@ public partial class Player : CharacterBody2D, IController
         // 使用补间动画平滑移动到新位置
         var tween = CreateTween();
         tween.TweenProperty(this, "global_position", e.TargetPosition, 0.2f);
+
+        // 根据移动方向更新玩家朝向
+        PlayerSprite.FlipH = e.TargetPosition.X < GlobalPosition.X;
         
         _log.Debug("玩家移动到新位置({0},{1})", e.TargetPosition.X, e.TargetPosition.Y);
     }

@@ -43,14 +43,15 @@ public partial class PlayerPositionModel : AbstractModel, IPlayerPositionModel
 
     /// <summary>
     /// 检查位置是否有效（在网格范围内）
-    /// 目前简单实现，后续可以扩展网格边界检查
+    /// 目前简单实现，总是返回true，允许负坐标
+    /// 实际的位置验证应该由MovementSystem使用GridMapModel来处理
     /// </summary>
     /// <param name="position">要检查的位置</param>
     /// <returns>是否有效</returns>
     public bool IsValidPosition(Vector2 position)
     {
-        // 简单实现：位置不能为负数
-        // 后续可以添加网格边界检查
-        return position.X >= 0 && position.Y >= 0;
+        // 简单实现：总是返回true，允许负坐标
+        // 实际的位置验证应该由MovementSystem使用GridMapModel来处理
+        return true;
     }
 }

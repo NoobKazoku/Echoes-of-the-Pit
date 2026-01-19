@@ -11,6 +11,7 @@ public partial class Grid :Area2D,IController
 {
 	private Area2D GridArea => GetNode<Area2D>("%CollisionShape2D");
 	private AnimatedSprite2D Gridsprite => GetNode<AnimatedSprite2D>("%AnimatedSprite2D");
+	private Player _player => GetNode<Player>("/root/Dungeon/Player");
 	/// <summary>
 	/// 节点准备就绪时的回调方法
 	/// 在节点添加到场景树后调用
@@ -36,6 +37,7 @@ public partial class Grid :Area2D,IController
 		{
 			_log.Debug("选中格子({0},{1})",GlobalPosition.X,GlobalPosition.Y);
 			Gridsprite.Play("pressed");
+			_player.MoveToGrid(this);
 		}
 	}
 }

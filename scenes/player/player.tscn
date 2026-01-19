@@ -1,6 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://ce4ljex3xbyx3"]
+[gd_scene load_steps=6 format=3 uid="uid://ce4ljex3xbyx3"]
 
 [ext_resource type="Texture2D" uid="uid://dxasoi3tsi5rf" path="res://assets/art/玩家挥剑.png" id="1_8afob"]
+[ext_resource type="Script" uid="uid://bhcokqi2gqc0" path="res://scripts/player/Player.cs" id="1_dovo2"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_dovo2"]
 atlas = ExtResource("1_8afob")
@@ -22,6 +23,7 @@ size = Vector2(64, 64)
 
 [node name="Player" type="CharacterBody2D"]
 collision_mask = 0
+script = ExtResource("1_dovo2")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_gmlin")

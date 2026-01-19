@@ -1,3 +1,4 @@
+using System;
 using EchoesOfThePit.scripts.command.setting;
 using EchoesOfThePit.scripts.command.setting.input;
 using EchoesOfThePit.scripts.core;
@@ -29,20 +30,24 @@ namespace EchoesOfThePit.global;
 [ContextAware]
 public partial class GameEntryPoint : Node
 {
-    public static IArchitecture Architecture { get; private set; } = null!;
-    private ISettingsStorageUtility _settingsStorageUtility = null!;
+    private IGodotSceneRegistry _sceneRegistry = null!;
     private ISettingsModel _settingsModel = null!;
-    private GodotUiRegistry _uiRegistry = null!;
-    private GodotSceneRegistry _sceneRegistry = null!;
+    private ISettingsStorageUtility _settingsStorageUtility = null!;
+    private IGodotUiRegistry _uiRegistry = null!;
+    public static IArchitecture Architecture { get; private set; } = null!;
     [Export] public bool IsDev { get; set; } = true;
+
     /// <summary>
     /// UI页面配置数组，包含所有可用的UI页面配置项
     /// </summary>
     /// <value>
     /// 存储UiPageConfig对象的数组集合
     /// </value>
-    [Export] public Array<UiPageConfig> UiPageConfigs { get; set; } = null!;
+    [Export]
+    public Array<UiPageConfig> UiPageConfigs { get; set; } = null!;
+
     [Export] public Array<GameSceneConfig> GameSceneConfigs { get; set; } = null!;
+
     /// <summary>
     /// Godot引擎调用的节点就绪方法，在此方法中初始化游戏架构和相关组件
     /// </summary>
@@ -70,18 +75,20 @@ public partial class GameEntryPoint : Node
             Settings = data,
         })).ConfigureAwait(false);
         _log.Info("设置已加载");
-        _sceneRegistry = this.GetUtility<GodotSceneRegistry>()!;
-        _uiRegistry = this.GetUtility<GodotUiRegistry>()!;
+        _sceneRegistry = this.GetUtility<IGodotSceneRegistry>()!;
+        _uiRegistry = this.GetUtility<IGodotUiRegistry>()!;
         // 注册所有游戏场景配置到场景注册表中
         foreach (var gameSceneConfig in GameSceneConfigs)
         {
             _sceneRegistry.Registry(gameSceneConfig);
         }
+
         // 注册所有UI页面配置到UI注册表中
         foreach (var uiPageConfig in UiPageConfigs)
         {
             _uiRegistry.Registry(uiPageConfig);
         }
+
         // 检查是否应该进入主菜单状态，如果是则注册UI根节点就绪事件来切换到主菜单状态
         if (ShouldEnterMainMenu())
         {
@@ -108,7 +115,8 @@ public partial class GameEntryPoint : Node
             return false;
 
         var scenePath = currentScene.SceneFilePath;
-        return string.Equals(scenePath, _sceneRegistry.Get(nameof(GameSceneKey.Main)).GetPath(), System.StringComparison.Ordinal);
+        return string.Equals(scenePath, _sceneRegistry.Get(nameof(GameSceneKey.Main)).GetPath(),
+            StringComparison.Ordinal);
     }
 
     /// <summary>

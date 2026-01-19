@@ -17,10 +17,4 @@ public enum GameSceneKey
     /// 核心游戏逻辑和主要界面显示的场景
     /// </summary>
     Main,
-
-    /// <summary>
-    /// 商店场景
-    /// 玩家进行物品购买、升级等相关操作的场景
-    /// </summary>
-    Shop,
 }

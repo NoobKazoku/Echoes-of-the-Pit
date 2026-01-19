@@ -1,0 +1,4 @@
+[
+  { "Id": "potion_small", "Name": "Small Potion", "Health": 20, "Speed": 0.0, "Defense": 0 },
+  { "Id": "shield_wood", "Name": "Wooden Shield", "Health": 0, "Speed": 0.0, "Defense": 3 }
+]

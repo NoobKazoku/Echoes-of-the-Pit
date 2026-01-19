@@ -1,5 +1,3 @@
-using EchoesOfThePit.scripts.command.game;
-using EchoesOfThePit.scripts.command.game.input;
 using EchoesOfThePit.scripts.component;
 using EchoesOfThePit.scripts.core.ui;
 using EchoesOfThePit.scripts.data;
@@ -33,6 +31,11 @@ public partial class LoadMenu : Control, IController, IUiPageBehaviorProvider, I
     private Button BackButton => GetNode<Button>("%BackButton");
     private VBoxContainer SlotContainer => GetNode<VBoxContainer>("%SlotContainer");
 
+    /// <summary>
+    ///  Ui Key的字符串形式
+    /// </summary>
+    private static string UiKeyStr => nameof(UiKey.LoadMenu);
+
     public void OnEnter(IUiPageEnterParam? param)
     {
         RefreshAllSlots();
@@ -45,7 +48,7 @@ public partial class LoadMenu : Control, IController, IUiPageBehaviorProvider, I
     /// <returns>返回IUiPageBehavior类型的页面行为实例</returns>
     public IUiPageBehavior GetPage()
     {
-        _page ??= new CanvasItemUiPageBehavior<Control>(this, nameof(UiKey.LoadMenu));
+        _page ??= new CanvasItemUiPageBehavior<Control>(this, UiKeyStr);
         return _page;
     }
 
@@ -55,8 +58,15 @@ public partial class LoadMenu : Control, IController, IUiPageBehaviorProvider, I
         _uiRouter = this.GetSystem<IUiRouter>()!;
         InitializeSlots();
         SetupEventHandlers();
-        // 判断是否在栈顶如果不在则入栈
-        if (!_uiRouter.IsTop(nameof(UiKey.LoadMenu)))
+        CallDeferred(nameof(CheckIfInStack));
+    }
+
+    /// <summary>
+    /// 检查当前UI是否在路由栈顶，如果不在则将页面推入路由栈
+    /// </summary>
+    private void CheckIfInStack()
+    {
+        if (!_uiRouter.IsTop(UiKeyStr))
         {
             _uiRouter.Push(GetPage());
         }
@@ -137,7 +147,6 @@ public partial class LoadMenu : Control, IController, IUiPageBehaviorProvider, I
     private void OnBackPressed()
     {
         _uiRouter.Pop();
-        this.SendCommand(new ResumeGameCommand(new ResumeGameCommandInput { Node = this }));
     }
 
     private SaveSlotItem? GetSlotItem(int slot)

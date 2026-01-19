@@ -21,6 +21,11 @@ public partial class MainMenu : Control, IController, IUiPageBehaviorProvider, I
     private IUiRouter _uiRouter = null!;
 
     /// <summary>
+    ///  Ui Key的字符串形式
+    /// </summary>
+    private static string UiKeyStr => nameof(UiKey.MainMenu);
+
+    /// <summary>
     /// 页面进入时调用的方法
     /// </summary>
     /// <param name="param">页面进入参数，可能为空</param>
@@ -113,5 +118,17 @@ public partial class MainMenu : Control, IController, IUiPageBehaviorProvider, I
             GD.Print("退出按钮被按下");
             GetTree().Quit();
         };
+        CallDeferred(nameof(CheckIfInStack));
+    }
+
+    /// <summary>
+    /// 检查当前UI是否在路由栈顶，如果不在则将页面推入路由栈
+    /// </summary>
+    private void CheckIfInStack()
+    {
+        if (!_uiRouter.IsTop(UiKeyStr))
+        {
+            _uiRouter.Push(GetPage());
+        }
     }
 }

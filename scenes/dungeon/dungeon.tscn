@@ -1,10 +1,9 @@
-[gd_scene load_steps=10 format=4 uid="uid://csso8l5galdxj"]
+[gd_scene load_steps=9 format=4 uid="uid://csso8l5galdxj"]
 
 [ext_resource type="Script" uid="uid://chsim03algdve" path="res://scripts/dungeon/Dungeon.cs" id="1_pf7w1"]
 [ext_resource type="PackedScene" uid="uid://v30k60rwpqgk" path="res://scenes/move_manager/grid.tscn" id="2_sub6p"]
 [ext_resource type="Texture2D" uid="uid://c7jvq8sj8a3dp" path="res://assets/art/testmap.png" id="3_frwky"]
 [ext_resource type="PackedScene" uid="uid://ce4ljex3xbyx3" path="res://scenes/player/player.tscn" id="4_vhky6"]
-[ext_resource type="PackedScene" uid="uid://4qn8ea4yngbl" path="res://scenes/enemy/goblin_dagger/goblin_dagger.tscn" id="5_vhky6"]
 
 [sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_4f38h"]
 resource_name = "grid"
@@ -305,21 +304,3 @@ unique_name_in_owner = true
 position = Vector2(928, 544)
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
-
-[node name="GoblinDagger" parent="." instance=ExtResource("5_vhky6")]
-position = Vector2(1118, 543)
-
-[node name="GoblinDagger2" parent="." instance=ExtResource("5_vhky6")]
-position = Vector2(1119, 610)
-
-[node name="GoblinDagger3" parent="." instance=ExtResource("5_vhky6")]
-position = Vector2(1120, 679)
-
-[node name="GoblinDagger4" parent="." instance=ExtResource("5_vhky6")]
-position = Vector2(1115, 740)
-
-[node name="GoblinDagger5" parent="." instance=ExtResource("5_vhky6")]
-position = Vector2(1122, 477)
-
-[node name="GoblinDagger6" parent="." instance=ExtResource("5_vhky6")]
-position = Vector2(1125, 416)

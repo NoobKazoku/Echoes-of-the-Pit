@@ -1,4 +1,5 @@
 ﻿using EchoesOfThePit.scripts.audio;
+using EchoesOfThePit.scripts.config;
 using EchoesOfThePit.scripts.setting;
 using GFramework.Core.Abstractions.architecture;
 using GFramework.Game.architecture;
@@ -8,7 +9,7 @@ namespace EchoesOfThePit.scripts.module;
 /// <summary>
 /// Godot模块实现类，负责安装和注册游戏中的各种模型
 /// </summary>
-public class ModelModule: AbstractModule
+public class ModelModule : AbstractModule
 {
     /// <summary>
     /// 安装模块方法，向架构中注册ArenaModel和UnitModel模型
@@ -18,5 +19,7 @@ public class ModelModule: AbstractModule
     {
         architecture.RegisterModel(new SettingsModel());
         architecture.RegisterModel(new AudioStateModel());
+
+        architecture.RegisterModel(new ConfigModel());
     }
 }

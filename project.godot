@@ -26,10 +26,10 @@ buses/default_bus_layout="res://resource/project_bus_layout.tres"
 [autoload]
 
 GameEntryPoint="*res://global/game_entry_point.tscn"
-GameRoot="*res://global/game_root.tscn"
 UiRoot="*res://global/ui_root.tscn"
-AudioManager="*res://global/audio_manager.tscn"
 GlobalInputController="*res://global/GlobalInputController.cs"
+AudioManager="*res://global/audio_manager.tscn"
+GameRoot="*res://global/game_root.tscn"
 SceneLoader="*res://global/SceneLoader.cs"
 
 [display]
@@ -55,6 +55,11 @@ folder_colors={
 [gui]
 
 theme/custom="uid://drg0lvsgoqfsc"
+
+[layer_names]
+
+2d_physics/layer_1="角色"
+2d_physics/layer_2="移动格"
 
 [rendering]
 

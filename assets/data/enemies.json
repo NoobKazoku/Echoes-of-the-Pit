@@ -1,0 +1,4 @@
+[
+  { "Id": "goblin_001", "Health": 30, "Speed": 3.5, "Defense": 2 },
+  { "Id": "skeleton_001", "Health": 45, "Speed": 2.5, "Defense": 5 }
+]

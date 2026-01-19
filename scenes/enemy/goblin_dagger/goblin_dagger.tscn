@@ -1,0 +1,30 @@
+[gd_scene load_steps=5 format=3 uid="uid://4qn8ea4yngbl"]
+
+[ext_resource type="Texture2D" uid="uid://dxasoi3tsi5rf" path="res://assets/art/玩家挥剑.png" id="1_n5606"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m2orr"]
+atlas = ExtResource("1_n5606")
+region = Rect2(192, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_tyomk"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m2orr")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_n5606"]
+size = Vector2(60, 60)
+
+[node name="GoblinDagger" type="CharacterBody2D"]
+collision_mask = 0
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_tyomk")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_n5606")

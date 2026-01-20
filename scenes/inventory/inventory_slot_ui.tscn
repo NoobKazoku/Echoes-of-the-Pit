@@ -1,0 +1,34 @@
+[gd_scene load_steps=4 format=3 uid="uid://dtf7jiyq34gd2"]
+
+[ext_resource type="Script" uid="uid://bv35ei6slusag" path="res://scripts/inventory/InventorySlotUI.cs" id="1_ev5sw"]
+[ext_resource type="Texture2D" uid="uid://p5dak2wsc1nk" path="res://nooblogo.png" id="2_ev5sw"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_ev5sw"]
+
+[node name="InventorySlotUI" type="PanelContainer"]
+custom_minimum_size = Vector2(64, 64)
+script = ExtResource("1_ev5sw")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_right = 4
+theme_override_constants/margin_bottom = 4
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="Icon" type="TextureRect" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+texture = ExtResource("2_ev5sw")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="CountLabel" type="Label" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "123"
+label_settings = SubResource("LabelSettings_ev5sw")
+horizontal_alignment = 1
+vertical_alignment = 1

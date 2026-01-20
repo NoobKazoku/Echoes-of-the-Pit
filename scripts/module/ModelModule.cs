@@ -1,4 +1,5 @@
 ﻿using EchoesOfThePit.scripts.audio;
+using EchoesOfThePit.scripts.inventory.models;
 using EchoesOfThePit.scripts.setting;
 using GFramework.Core.Abstractions.architecture;
 using GFramework.Game.architecture;
@@ -18,5 +19,6 @@ public class ModelModule: AbstractModule
     {
         architecture.RegisterModel(new SettingsModel());
         architecture.RegisterModel(new AudioStateModel());
+        architecture.RegisterModel(new InventoryModel());
     }
 }

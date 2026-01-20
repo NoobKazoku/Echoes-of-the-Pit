@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=2 format=3 uid="uid://d1jmiey4d4jjb"]
+
+[ext_resource type="Script" uid="uid://bxt7kxofhgu4x" path="res://scripts/inventory/models/ItemData.cs" id="2_bjdjh"]
+
+[resource]
+script = ExtResource("2_bjdjh")
+Id = "5"
+Name = "新手教程"
+Description = "这是一段新手教程"
+ItemType = 4
+metadata/_custom_type_script = "uid://bxt7kxofhgu4x"

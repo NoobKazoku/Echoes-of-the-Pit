@@ -8,13 +8,13 @@ namespace EchoesOfThePit.scripts.move_manager.events;
 /// </summary>
 public sealed class GridSelectedEvent
 {
-    /// <summary>
-    /// 被选中的格子位置
-    /// </summary>
-    public Vector2 GridPosition { get; set; }
-    
-    /// <summary>
-    /// 格子实例（可选）
-    /// </summary>
-    public object GridInstance { get; set; }
+	/// <summary>
+	/// 被选中的格子位置
+	/// </summary>
+	public Vector2 GridPosition { get; set; }
+	
+	/// <summary>
+	/// 格子实例（可选）
+	/// </summary>
+	public object GridInstance { get; set; }
 }

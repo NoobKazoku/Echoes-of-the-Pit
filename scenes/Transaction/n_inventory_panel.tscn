@@ -16,13 +16,11 @@ corner_radius_bottom_left = 2
 
 [node name="NInventoryPanel" type="Panel"]
 custom_minimum_size = Vector2(90, 90)
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
+anchors_preset = -1
 offset_left = 10.0
 offset_top = 7.0
-offset_right = -1830.0
-offset_bottom = -993.0
+offset_right = 90.0
+offset_bottom = 87.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_a2rkl")

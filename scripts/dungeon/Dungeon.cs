@@ -3,6 +3,7 @@ using GFramework.Core.Abstractions.controller;
 using GFramework.SourceGenerators.Abstractions.logging;
 using GFramework.SourceGenerators.Abstractions.rule;
 
+namespace EchoesOfThePit.scripts.dungeon;
 
 [ContextAware]
 [Log]
@@ -17,5 +18,3 @@ public partial class Dungeon :Node2D,IController
 		
 	}
 }
-
-

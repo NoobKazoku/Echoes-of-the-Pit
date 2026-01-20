@@ -3,11 +3,9 @@
 [ext_resource type="Script" uid="uid://csm56pvpahhd0" path="res://scripts/trade/CWeaponItem.cs" id="1_wixr0"]
 
 [resource]
-resource_local_to_scene = true
 script = ExtResource("1_wixr0")
 mChangeAttack = 12.0
 mChangeDefense = 3.0
 mName = "武器"
-mImg = "uid://rtm25qa70grj"
 mMoney = 100
 metadata/_custom_type_script = "uid://csm56pvpahhd0"

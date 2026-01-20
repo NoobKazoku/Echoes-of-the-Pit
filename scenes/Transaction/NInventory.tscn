@@ -1,9 +1,29 @@
-[gd_scene load_steps=5 format=3 uid="uid://cadiuto78sm4w"]
+[gd_scene load_steps=7 format=3 uid="uid://cadiuto78sm4w"]
 
 [ext_resource type="PackedScene" uid="uid://bxg644b0631tk" path="res://scenes/Transaction/n_inventory_panel.tscn" id="1_kdguc"]
 [ext_resource type="PackedScene" uid="uid://cvichv74vje46" path="res://scenes/Transaction/NItem.tscn" id="2_h5ens"]
-[ext_resource type="Resource" uid="uid://dsf5qux2qi0i3" path="res://scripts/trade/Materialresources/血瓶测试.tres" id="3_auy1u"]
-[ext_resource type="Resource" uid="uid://d3srxky6akuhx" path="res://scripts/trade/Materialresources/武器测试.tres" id="4_12t7t"]
+[ext_resource type="Script" uid="uid://ce31x4o66hc7t" path="res://scripts/trade/CDrugItem.cs" id="3_h5ens"]
+[ext_resource type="Script" uid="uid://csm56pvpahhd0" path="res://scripts/trade/CWeaponItem.cs" id="4_auy1u"]
+
+[sub_resource type="Resource" id="Resource_12t7t"]
+resource_local_to_scene = true
+script = ExtResource("3_h5ens")
+mHealthRestore = 16
+mManaRestore = 4
+mName = "面包"
+mImg = "uid://bgfymwn5rb7y3"
+mMoney = 10
+metadata/_custom_type_script = "uid://ce31x4o66hc7t"
+
+[sub_resource type="Resource" id="Resource_yxd7m"]
+resource_local_to_scene = true
+script = ExtResource("4_auy1u")
+mChangeAttack = 12.0
+mChangeDefense = 3.0
+mName = "武器"
+mImg = "uid://rtm25qa70grj"
+mMoney = 100
+metadata/_custom_type_script = "uid://csm56pvpahhd0"
 
 [node name="NInventory" type="Panel"]
 anchors_preset = 15
@@ -33,8 +53,10 @@ theme_override_font_sizes/bold_italics_font_size = 20
 theme_override_font_sizes/italics_font_size = 20
 theme_override_font_sizes/mono_font_size = 16
 bbcode_enabled = true
-text = "[color=green]血量+100[/color]
-[color=#ffffff88]力量+10[/color]
+text = "[color=green]血量100[/color]
+[color=#ffffff88]攻击力25[/color]
+防御力10
+
 
 "
 autowrap_mode = 2
@@ -49,38 +71,56 @@ offset_bottom = 678.0
 
 [node name="NInventoryPanel" parent="Panel2" instance=ExtResource("1_kdguc")]
 layout_mode = 1
-offset_left = 165.0
-offset_top = 90.0
-offset_right = -172.0
-offset_bottom = -415.0
+anchor_left = 0.5
+anchor_top = 0.42900002
+anchor_right = 0.5
+anchor_bottom = 0.42900002
+offset_left = -48.5
+offset_top = -165.255
+offset_right = -385.5
+offset_bottom = -670.255
+grow_horizontal = 1
+grow_vertical = 1
 
 [node name="NInventoryPanel5" parent="Panel2" instance=ExtResource("1_kdguc")]
 layout_mode = 1
+anchors_preset = 0
 offset_left = 255.0
 offset_top = 393.0
 offset_right = -82.0
 offset_bottom = -112.0
+grow_horizontal = 1
+grow_vertical = 1
 
 [node name="NInventoryPanel2" parent="Panel2" instance=ExtResource("1_kdguc")]
 layout_mode = 1
+anchors_preset = 0
 offset_left = 82.0
 offset_top = 393.0
 offset_right = -255.0
 offset_bottom = -112.0
+grow_horizontal = 1
+grow_vertical = 1
 
 [node name="NInventoryPanel3" parent="Panel2" instance=ExtResource("1_kdguc")]
 layout_mode = 1
+anchors_preset = 0
 offset_left = 310.0
 offset_top = 202.0
 offset_right = -27.0
 offset_bottom = -303.0
+grow_horizontal = 1
+grow_vertical = 1
 
 [node name="NInventoryPanel4" parent="Panel2" instance=ExtResource("1_kdguc")]
 layout_mode = 1
+anchors_preset = 0
 offset_left = 25.0
 offset_top = 202.0
 offset_right = -312.0
 offset_bottom = -303.0
+grow_horizontal = 1
+grow_vertical = 1
 
 [node name="GridContainer" type="GridContainer" parent="."]
 layout_mode = 0
@@ -96,7 +136,7 @@ columns = 8
 layout_mode = 2
 
 [node name="NItem" parent="GridContainer/NInventoryPanel" instance=ExtResource("2_h5ens")]
-mItem = ExtResource("3_auy1u")
+mItem = SubResource("Resource_12t7t")
 
 [node name="NInventoryPanel2" parent="GridContainer" instance=ExtResource("1_kdguc")]
 layout_mode = 2
@@ -105,7 +145,7 @@ layout_mode = 2
 layout_mode = 2
 
 [node name="NItem" parent="GridContainer/NInventoryPanel3" instance=ExtResource("2_h5ens")]
-mItem = ExtResource("4_12t7t")
+mItem = SubResource("Resource_yxd7m")
 
 [node name="NInventoryPanel4" parent="GridContainer" instance=ExtResource("1_kdguc")]
 layout_mode = 2

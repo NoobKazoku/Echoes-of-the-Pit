@@ -30,10 +30,20 @@ public partial class NItem : Area2D
 		// 如果物品资源存在且有有效的图片路径，则加载并设置物品图片
 		if (mItem != null && !string.IsNullOrEmpty(mItem.mImg))
 			mImg.Texture = ResourceLoader.Load<Texture2D>(mItem.mImg);
+		_adjustPos();
 	}
 
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
 	public override void _Process(double delta)
 	{
 	}
+	void _adjustPos()
+	{
+		NInventoryPanel p =	 GetParentOrNull<NInventoryPanel>();
+		if (p != null)
+		{
+			Position = p.Size / 2;
+		}
+	}
+
 }

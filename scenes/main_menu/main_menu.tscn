@@ -78,5 +78,15 @@ text = "退出"
 
 [node name="标题" type="Sprite2D" parent="."]
 position = Vector2(960.00006, 264)
-scale = Vector2(1.5, 1.5)
+scale = Vector2(3, 3)
 texture = ExtResource("3_ob46e")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+z_index = -10
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.63, 0.63, 0.63, 1)

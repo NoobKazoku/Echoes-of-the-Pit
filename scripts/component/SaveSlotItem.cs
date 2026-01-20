@@ -55,7 +55,7 @@ public partial class SaveSlotItem : HBoxContainer, IController
     /// <summary>
     /// 检查是否有存档数据
     /// </summary>
-    public bool HasSave => _saveData is { Inventory.Count: > 0 };
+    public bool HasSave => _saveData is { SlotDescription.Length: > 0 };
 
     /// <summary>
     /// 组件准备就绪时调用，初始化事件监听器
@@ -113,7 +113,7 @@ public partial class SaveSlotItem : HBoxContainer, IController
         DeleteButton.Visible = _showDeleteButton;
 
         // 根据存档数据存在情况设置按钮状态
-        if (_saveData is { Inventory.Count: > 0 })
+        if (_saveData is { SlotDescription.Length: > 0 })
         {
             ActionButton.Text = _isLoadMode ? "读取" : "覆盖";
             ActionButton.Disabled = false;

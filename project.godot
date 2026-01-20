@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Echoes-of-the-Pit"
-run/main_scene="uid://ba2a80bdo4vlf"
+run/main_scene="uid://6s2urcdmkpbt"
 config/features=PackedStringArray("4.5", "C#", "GL Compatibility")
 boot_splash/fullsize=false
 boot_splash/image="uid://p5dak2wsc1nk"

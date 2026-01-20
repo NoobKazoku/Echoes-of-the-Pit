@@ -1,6 +1,9 @@
+using System;
+using EchoesOfThePit.scripts.core.constants;
 using EchoesOfThePit.scripts.core.ui;
 using EchoesOfThePit.scripts.enums.ui;
 using GFramework.Core.Abstractions.controller;
+using GFramework.Core.extensions;
 using GFramework.Game.Abstractions.ui;
 using GFramework.Godot.ui;
 using GFramework.SourceGenerators.Abstractions.logging;
@@ -18,6 +21,9 @@ public partial class Shop : Control, IController, IUiPageBehaviorProvider, ISimp
     /// </summary>
     private IUiPageBehavior? _page;
 
+    private IUiRouter _uiRouter = null!;
+    private static string UiKeyStr => nameof(UiKey.Shop);
+
     /// <summary>
     /// 页面进入时调用的方法
     /// </summary>
@@ -32,7 +38,7 @@ public partial class Shop : Control, IController, IUiPageBehaviorProvider, ISimp
     /// <returns>返回IUiPageBehavior类型的页面行为实例</returns>
     public IUiPageBehavior GetPage()
     {
-        _page ??= new CanvasItemUiPageBehavior<Control>(this, nameof(UiKey.Shop));
+        _page ??= new CanvasItemUiPageBehavior<Control>(this, UiKeyStr);
         return _page;
     }
 
@@ -42,5 +48,16 @@ public partial class Shop : Control, IController, IUiPageBehaviorProvider, ISimp
     /// </summary>
     public override void _Ready()
     {
+        _uiRouter = this.GetSystem<IUiRouter>()!;
+        CallDeferred(nameof(CallDeferredInit));
+    }
+
+    private void CallDeferredInit()
+    {
+        var env = this.GetEnvironment();
+        if (GameConstants.Development.Equals(env.Name, StringComparison.Ordinal) && !_uiRouter.IsTop(UiKeyStr))
+        {
+            _uiRouter.Push(GetPage());
+        }
     }
 }

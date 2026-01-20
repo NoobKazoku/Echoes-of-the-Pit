@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=3 format=3 uid="uid://ch3k3wyrichal"]
+
+[ext_resource type="Texture2D" uid="uid://p5dak2wsc1nk" path="res://nooblogo.png" id="1_0c8a1"]
+[ext_resource type="Script" uid="uid://bxt7kxofhgu4x" path="res://scripts/inventory/models/ItemData.cs" id="1_hoesr"]
+
+[resource]
+script = ExtResource("1_hoesr")
+Id = "1"
+Name = "生命药水"
+Description = "恢复生命值"
+ItemType = 1
+Icon = ExtResource("1_0c8a1")
+MaxStack = 5
+metadata/_custom_type_script = "uid://bxt7kxofhgu4x"

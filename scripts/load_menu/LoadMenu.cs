@@ -1,8 +1,12 @@
+using System;
 using EchoesOfThePit.scripts.component;
+using EchoesOfThePit.scripts.core.constants;
 using EchoesOfThePit.scripts.core.ui;
 using EchoesOfThePit.scripts.data;
 using EchoesOfThePit.scripts.enums.ui;
 using EchoesOfThePit.scripts.events.data;
+using EchoesOfThePit.scripts.game_state.interfaces;
+using EchoesOfThePit.scripts.inventory.interfaces;
 using GFramework.Core.Abstractions.controller;
 using GFramework.Core.extensions;
 using GFramework.Game.Abstractions.ui;
@@ -19,6 +23,10 @@ namespace EchoesOfThePit.scripts.load_menu;
 [Log]
 public partial class LoadMenu : Control, IController, IUiPageBehaviorProvider, ISimpleUiPage
 {
+    private IGameStateManager _gameStateManager = null!;
+
+    private IInventoryManager _inventoryManager = null!;
+
     /// <summary>
     /// 页面行为实例的私有字段
     /// </summary>
@@ -27,7 +35,7 @@ public partial class LoadMenu : Control, IController, IUiPageBehaviorProvider, I
     private SaveStorageUtility _saveStorageUtility = null!;
 
     private IUiRouter _uiRouter = null!;
-    private ConfirmationDialog ConfirmationDialog => GetNode<ConfirmationDialog>("ConfirmationDialog");
+    private ConfirmationDialog ConfirmationDialog => GetNode<ConfirmationDialog>("%ConfirmationDialog");
     private Button BackButton => GetNode<Button>("%BackButton");
     private VBoxContainer SlotContainer => GetNode<VBoxContainer>("%SlotContainer");
 
@@ -56,20 +64,30 @@ public partial class LoadMenu : Control, IController, IUiPageBehaviorProvider, I
     {
         _saveStorageUtility = this.GetUtility<SaveStorageUtility>()!;
         _uiRouter = this.GetSystem<IUiRouter>()!;
+        _gameStateManager = this.GetModel<IGameStateManager>()!;
+        _inventoryManager = this.GetModel<IInventoryManager>()!;
         InitializeSlots();
         SetupEventHandlers();
-        CallDeferred(nameof(CheckIfInStack));
+        CallDeferred(nameof(CallDeferredInit));
     }
 
     /// <summary>
     /// 检查当前UI是否在路由栈顶，如果不在则将页面推入路由栈
     /// </summary>
-    private void CheckIfInStack()
+    private void CallDeferredInit()
     {
-        if (!_uiRouter.IsTop(UiKeyStr))
+        var env = this.GetEnvironment();
+        if (GameConstants.Development.Equals(env.Name, StringComparison.Ordinal) && !_uiRouter.IsTop(UiKeyStr))
         {
             _uiRouter.Push(GetPage());
         }
+
+        this
+            .RegisterEvent<ActionPressedEvent>(e => OnSlotActionPressed(e.Slot))
+            .UnRegisterWhenNodeExitTree(this);
+        this
+            .RegisterEvent<DeletePressedEvent>(e => OnSlotDeletePressed(e.Slot))
+            .UnRegisterWhenNodeExitTree(this);
     }
 
     private void InitializeSlots()
@@ -80,14 +98,9 @@ public partial class LoadMenu : Control, IController, IUiPageBehaviorProvider, I
             if (slotContainer.GetChild(i) is not SaveSlotItem slotItem) continue;
 
             var saveData = _saveStorageUtility.Load(i);
-
+            _log.Debug(
+                $"Slot {i} saveData = {saveData}, PlayerLevel={saveData.PlayerLevel}, CurrentScene={saveData.CurrentScene}");
             slotItem.Initialize(i, saveData, isLoadMode: true);
-            slotItem
-                .RegisterEvent<ActionPressedEvent>(e => OnSlotActionPressed(e.Slot))
-                .UnRegisterWhenNodeExitTree(this);
-            slotItem
-                .RegisterEvent<DeletePressedEvent>(e => OnSlotDeletePressed(e.Slot))
-                .UnRegisterWhenNodeExitTree(this);
         }
     }
 
@@ -120,7 +133,7 @@ public partial class LoadMenu : Control, IController, IUiPageBehaviorProvider, I
     private void OnSlotDeletePressed(int slot)
     {
         var slotItem = GetSlotItem(slot);
-        if (slotItem == null || !slotItem.HasSave) return;
+        if (slotItem is not { HasSave: true }) return;
 
         ConfirmationDialog.ShowDialog($"确认要删除槽位 {slot + 1} 的存档吗？", () => DeleteGame(slot));
     }
@@ -135,6 +148,18 @@ public partial class LoadMenu : Control, IController, IUiPageBehaviorProvider, I
 
     private void ApplyGameData(GameSaveData saveData)
     {
+        _gameStateManager.PlayerLevel = saveData.PlayerLevel;
+        _gameStateManager.PlayerExp = saveData.PlayerExp;
+        _gameStateManager.CurrentScene = saveData.CurrentScene;
+
+        _inventoryManager.LoadFromData(saveData.Inventory);
+
+        foreach (var flag in saveData.GameFlags)
+        {
+            _gameStateManager.SetFlag(flag.Key, flag.Value);
+        }
+
+        _log.Debug($"游戏数据已应用：等级 {_gameStateManager.PlayerLevel}，场景 {_gameStateManager.CurrentScene}");
     }
 
     private void DeleteGame(int slot)

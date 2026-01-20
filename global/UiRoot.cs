@@ -40,8 +40,14 @@ public partial class UiRoot : CanvasLayer, IUiRoot
         if (!_containers.TryGetValue(layer, out var container))
             throw new InvalidOperationException($"UiLayer not found: {layer}");
 
-        if (item.GetParent() != container)
+        if (item.GetParent() == null)
+        {
+            container.AddChild(item);
+        }
+        else if (item.GetParent() != container)
+        {
             item.Reparent(container);
+        }
 
         item.ZIndex = (int)layer * 100 + orderInLayer;
         item.ZAsRelative = false;
@@ -101,6 +107,7 @@ public partial class UiRoot : CanvasLayer, IUiRoot
         var router = this.GetSystem<IUiRouter>()!;
         router.BindRoot(this);
         this.SendEvent<UiRootReadyEvent>();
+        _log.Debug($"[UiRoot] Ready. Path={GetPath()} InTree={IsInsideTree()}");
     }
 
     private void InitLayers()

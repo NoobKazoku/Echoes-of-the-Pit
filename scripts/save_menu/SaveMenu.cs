@@ -1,9 +1,12 @@
 using System;
 using EchoesOfThePit.scripts.component;
+using EchoesOfThePit.scripts.core.constants;
 using EchoesOfThePit.scripts.core.ui;
 using EchoesOfThePit.scripts.data;
 using EchoesOfThePit.scripts.enums.ui;
 using EchoesOfThePit.scripts.events.data;
+using EchoesOfThePit.scripts.game_state.interfaces;
+using EchoesOfThePit.scripts.inventory.interfaces;
 using GFramework.Core.Abstractions.controller;
 using GFramework.Core.extensions;
 using GFramework.Game.Abstractions.ui;
@@ -20,6 +23,10 @@ namespace EchoesOfThePit.scripts.save_menu;
 [Log]
 public partial class SaveMenu : Control, IController, IUiPageBehaviorProvider, ISimpleUiPage
 {
+    private IGameStateManager _gameStateManager = null!;
+
+    private IInventoryManager _inventoryManager = null!;
+
     /// <summary>
     /// 页面行为实例的私有字段
     /// </summary>
@@ -58,21 +65,29 @@ public partial class SaveMenu : Control, IController, IUiPageBehaviorProvider, I
     {
         _saveStorageUtility = this.GetUtility<SaveStorageUtility>()!;
         _uiRouter = this.GetSystem<IUiRouter>()!;
+        _gameStateManager = this.GetModel<IGameStateManager>()!;
+        _inventoryManager = this.GetModel<IInventoryManager>()!;
 
         InitializeSlots();
         SetupEventHandlers();
-        CallDeferred(nameof(CheckIfInStack));
+        CallDeferred(nameof(CallDeferredInit));
     }
 
+
     /// <summary>
-    /// 检查当前UI是否在路由栈顶，如果不在则将页面推入路由栈
+    /// 延迟初始化
     /// </summary>
-    private void CheckIfInStack()
+    private void CallDeferredInit()
     {
-        if (!_uiRouter.IsTop(UiKeyStr))
+        var env = this.GetEnvironment();
+        if (GameConstants.Development.Equals(env.Name, StringComparison.Ordinal) && !_uiRouter.IsTop(UiKeyStr))
         {
             _uiRouter.Push(GetPage());
         }
+
+        this
+            .RegisterEvent<ActionPressedEvent>(e => OnSlotActionPressed(e.Slot))
+            .UnRegisterWhenNodeExitTree(this);
     }
 
     private void InitializeSlots()
@@ -85,10 +100,6 @@ public partial class SaveMenu : Control, IController, IUiPageBehaviorProvider, I
 
             slotItem.Initialize(i, saveData, isLoadMode: false);
         }
-
-        this
-            .RegisterEvent<ActionPressedEvent>(e => OnSlotActionPressed(e.Slot))
-            .UnRegisterWhenNodeExitTree(this);
     }
 
     private void SetupEventHandlers()
@@ -138,18 +149,26 @@ public partial class SaveMenu : Control, IController, IUiPageBehaviorProvider, I
 
     private GameSaveData GetCurrentGameData()
     {
-        var saveData = _saveStorageUtility.Load(0);
+        var previousData = _saveStorageUtility.Load(0);
 
         var currentData = new GameSaveData
         {
-            Version = saveData.Version + 1,
+            Version = previousData.Version + 1,
             SaveTime = DateTime.Now,
-            SlotDescription = saveData.SlotDescription,
+            SlotDescription = $"存档于 {DateTime.Now:yyyy-MM-dd HH:mm}",
+            PlayerLevel = _gameStateManager.PlayerLevel,
+            PlayerExp = _gameStateManager.PlayerExp,
+            CurrentScene = _gameStateManager.CurrentScene,
         };
 
-        foreach (var item in saveData.Inventory)
+        foreach (var item in _inventoryManager.GetAllItems())
         {
             currentData.Inventory[item.Key] = item.Value;
+        }
+
+        foreach (var flag in _gameStateManager.GameFlags)
+        {
+            currentData.GameFlags[flag.Key] = flag.Value;
         }
 
         return currentData;

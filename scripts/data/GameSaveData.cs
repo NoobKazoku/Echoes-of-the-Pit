@@ -15,6 +15,26 @@ public class GameSaveData
     public readonly Dictionary<string, int> Inventory = new();
 
     /// <summary>
+    /// 玩家等级
+    /// </summary>
+    public int PlayerLevel { get; set; } = 1;
+
+    /// <summary>
+    /// 玩家经验值
+    /// </summary>
+    public int PlayerExp { get; set; } = 0;
+
+    /// <summary>
+    /// 当前场景名称
+    /// </summary>
+    public string CurrentScene { get; set; } = "main_menu";
+
+    /// <summary>
+    /// 游戏标志字典，用于存储游戏进度标记
+    /// </summary>
+    public Dictionary<string, object> GameFlags { get; set; } = new();
+
+    /// <summary>
     /// 存档版本号，用于处理不同版本间的兼容性
     /// </summary>
     public int Version { get; set; } = 1;

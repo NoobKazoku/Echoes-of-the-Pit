@@ -26,6 +26,5 @@ metadata/_custom_type_script = "uid://cl054n3c8n68a"
 
 [node name="GameEntryPoint" type="Node"]
 script = ExtResource("1_a14y6")
-IsDev = false
 UiPageConfigs = Array[Object]([SubResource("Resource_l8ju5"), SubResource("Resource_3xsct")])
 GameSceneConfigs = Array[Object]([SubResource("Resource_f22d5")])

@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://yf6gtgm5cgxf" path="res://scripts/load_menu/LoadMenu.cs" id="1_df2ov"]
 [ext_resource type="PackedScene" uid="uid://0wmexdyug5ix" path="res://scenes/component/save_slot_item.tscn" id="2_yo27f"]
-[ext_resource type="PackedScene" path="res://scenes/component/confirmation_dialog.tscn" id="3_jwr0c"]
+[ext_resource type="PackedScene" uid="uid://cpsan4k3m5r6e" path="res://scenes/component/confirmation_dialog.tscn" id="3_jwr0c"]
 
 [node name="LoadMenu" type="Control"]
 layout_mode = 3
@@ -96,5 +96,6 @@ theme_override_font_sizes/font_size = 32
 text = "返回"
 
 [node name="ConfirmationDialog" parent="." instance=ExtResource("3_jwr0c")]
+unique_name_in_owner = true
 visible = false
 layout_mode = 1

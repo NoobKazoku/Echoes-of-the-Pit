@@ -50,9 +50,9 @@ public partial class ConfirmationDialog : Control, IController
 
     private void OnConfirmButtonPressed()
     {
-        HideDialog();
         EmitSignalConfirmed();
         _confirmCallback?.Invoke();
+        HideDialog();
     }
 
     private void OnCancelButtonPressed()

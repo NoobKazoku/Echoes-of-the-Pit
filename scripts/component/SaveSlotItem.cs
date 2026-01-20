@@ -91,7 +91,7 @@ public partial class SaveSlotItem : HBoxContainer, IController
         SlotLabel.Text = $"槽位 {_slot + 1}";
 
         // 根据存档数据是否存在来设置时间显示和颜色
-        if (_saveData is { Inventory.Count: > 0 })
+        if (_saveData is { SlotDescription.Length: > 0 })
         {
             TimeLabel.Text =
                 _saveData.SaveTime.ToString("yyyy-MM-dd HH:mm", CultureInfo.InvariantCulture);

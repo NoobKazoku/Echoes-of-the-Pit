@@ -84,10 +84,11 @@ public partial class SaveMenu : Control, IController, IUiPageBehaviorProvider, I
             var saveData = _saveStorageUtility.Load(i);
 
             slotItem.Initialize(i, saveData, isLoadMode: false);
-            this
-                .RegisterEvent<ActionPressedEvent>(e => OnSlotActionPressed(e.Slot))
-                .UnRegisterWhenNodeExitTree(this);
         }
+
+        this
+            .RegisterEvent<ActionPressedEvent>(e => OnSlotActionPressed(e.Slot))
+            .UnRegisterWhenNodeExitTree(this);
     }
 
     private void SetupEventHandlers()

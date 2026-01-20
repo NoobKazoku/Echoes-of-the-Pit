@@ -5,7 +5,7 @@
 [ext_resource type="Script" uid="uid://ce31x4o66hc7t" path="res://scripts/trade/CDrugItem.cs" id="3_h5ens"]
 [ext_resource type="Script" uid="uid://csm56pvpahhd0" path="res://scripts/trade/CWeaponItem.cs" id="4_auy1u"]
 
-[sub_resource type="Resource" id="Resource_12t7t"]
+[sub_resource type="Resource" id="Resource_h5ens"]
 resource_local_to_scene = true
 script = ExtResource("3_h5ens")
 mHealthRestore = 16
@@ -15,7 +15,7 @@ mImg = "uid://bgfymwn5rb7y3"
 mMoney = 10
 metadata/_custom_type_script = "uid://ce31x4o66hc7t"
 
-[sub_resource type="Resource" id="Resource_yxd7m"]
+[sub_resource type="Resource" id="Resource_auy1u"]
 resource_local_to_scene = true
 script = ExtResource("4_auy1u")
 mChangeAttack = 12.0
@@ -136,7 +136,7 @@ columns = 8
 layout_mode = 2
 
 [node name="NItem" parent="GridContainer/NInventoryPanel" instance=ExtResource("2_h5ens")]
-mItem = SubResource("Resource_12t7t")
+mItem = SubResource("Resource_h5ens")
 
 [node name="NInventoryPanel2" parent="GridContainer" instance=ExtResource("1_kdguc")]
 layout_mode = 2
@@ -145,7 +145,7 @@ layout_mode = 2
 layout_mode = 2
 
 [node name="NItem" parent="GridContainer/NInventoryPanel3" instance=ExtResource("2_h5ens")]
-mItem = SubResource("Resource_yxd7m")
+mItem = SubResource("Resource_auy1u")
 
 [node name="NInventoryPanel4" parent="GridContainer" instance=ExtResource("1_kdguc")]
 layout_mode = 2

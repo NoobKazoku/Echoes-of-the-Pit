@@ -8,6 +8,7 @@ namespace EchoesOfThePit.scripts.trade;
 /// </summary>
 public partial class NItem : Area2D
 {
+	public static string CUR_SEL_ITEM = "CUR_SEL_ITEM";
 	/// <summary>
 	/// 物品资源引用，包含物品的基本属性和数据
 	/// </summary>

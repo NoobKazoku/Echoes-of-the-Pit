@@ -20,6 +20,7 @@ theme_override_constants/margin_bottom = 4
 layout_mode = 2
 
 [node name="Icon" type="TextureRect" parent="MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 3
 texture = ExtResource("2_ev5sw")
@@ -27,6 +28,7 @@ expand_mode = 1
 stretch_mode = 5
 
 [node name="CountLabel" type="Label" parent="MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
 layout_mode = 2
 text = "123"
 label_settings = SubResource("LabelSettings_ev5sw")

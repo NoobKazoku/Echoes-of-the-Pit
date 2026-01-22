@@ -5,7 +5,6 @@ using EchoesOfThePit.scripts.enums;
 using EchoesOfThePit.scripts.events.inventory;
 using EchoesOfThePit.scripts.inventory.models;
 using EchoesOfThePit.scripts.inventory.systems;
-using EchoesOfThePit.scripts.inventory.ui;
 using GFramework.Core.extensions;
 using GFramework.SourceGenerators.Abstractions.rule;
 using Godot;
@@ -20,9 +19,8 @@ public partial class InventoryUI : PanelContainer
 {
     [Export] public PackedScene? SlotScene { get; set; }
 
-    private GridContainer gridContainer = null!;
-    private Button closeButton = null!;
-    private Button randomAddButton = null!;
+    private GridContainer gridContainer => GetNode<GridContainer>("%GridContainer");
+    private Button closeButton => GetNode<Button>("%CloseButton");
     private IInventorySystem? inventorySystem;
     private IInventoryModel? inventoryModel;
     private readonly InventorySlotUI[] slotUis = new InventorySlotUI[36];
@@ -35,15 +33,15 @@ public partial class InventoryUI : PanelContainer
     /// <summary>
     /// 请求显示文档事件
     /// </summary>
-    public event Action<models.ItemData>? OnDocumentRequested;
+    public event Action<ItemData>? OnDocumentRequested;
 
     /// <summary>
     /// 尝试获取系统服务
     /// </summary>
     private void TryGetServices()
     {
-        inventoryModel = ContextAwareExtensions.GetModel<IInventoryModel>(this);
-        inventorySystem = ContextAwareExtensions.GetSystem<IInventorySystem>(this);
+        inventoryModel = this.GetModel<IInventoryModel>();
+        inventorySystem = this.GetSystem<IInventorySystem>();
 
         // 使用框架事件系统订阅背包变更事件
         this.RegisterEvent<InventoryChangedEvent>(_ => RefreshAll());
@@ -54,15 +52,12 @@ public partial class InventoryUI : PanelContainer
     /// </summary>
     public override void _Ready()
     {
-        gridContainer = GetNode<GridContainer>("MarginContainer/VBoxContainer/GridContainer");
-        closeButton = GetNode<Button>("MarginContainer/VBoxContainer/Header/CloseButton");
-
         // 获取系统和模型
         TryGetServices();
         // 初始化格子UI
         InitializeSlots();
 
-        models.ItemData? item = ResourceLoader.Load<models.ItemData>("res://scripts/inventory/entity/document_test.tres");
+        ItemData? item = ResourceLoader.Load<ItemData>("res://scripts/inventory/entity/document_test.tres");
         if (item != null)
         {
             this.SendCommand(new AddItemCommand(new AddItemCommandInput

@@ -2,17 +2,17 @@ using System;
 using EchoesOfThePit.scripts.inventory.models;
 using Godot;
 
-namespace EchoesOfThePit.scripts.inventory.ui;
+namespace EchoesOfThePit.scripts.inventory;
 
 /// <summary>
 /// 文档阅读弹窗，显示文档内容
 /// </summary>
 public partial class DocumentPopup : Control
 {
-    private Label _titleLabel = null!;
-    private Button _closeButton = null!;
-    private RichTextLabel _contentLabel = null!;
-    private ColorRect _overlay = null!;
+    private Label TitleLabel => GetNode<Label>("%TitleLabel")!;
+    private Button CloseButton => GetNode<Button>("%CloseButton")!;
+    private RichTextLabel ContentLabel => GetNode<RichTextLabel>("%ContentLabel")!;
+    private ColorRect Overlay => GetNode<ColorRect>("%Overlay")!;
     
     /// <summary>
     /// 关闭弹窗事件
@@ -24,13 +24,8 @@ public partial class DocumentPopup : Control
     /// </summary>
     public override void _Ready()
     {
-        _titleLabel = GetNode<Label>("CenterContainer/PanelContainer/MarginContainer/VBoxContainer/Header/TitleLabel");
-        _closeButton = GetNode<Button>("CenterContainer/PanelContainer/MarginContainer/VBoxContainer/Header/CloseButton");
-        _contentLabel = GetNode<RichTextLabel>("CenterContainer/PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/ContentLabel");
-        _overlay = GetNode<ColorRect>("Overlay");
-        
-        _closeButton.Pressed += Close;
-        _overlay.GuiInput += OnOverlayInput;
+        CloseButton.Pressed += Close;
+        Overlay.GuiInput += OnOverlayInput;
         
         // 初始隐藏
         Visible = false;
@@ -57,8 +52,8 @@ public partial class DocumentPopup : Control
     {
         if (!item.IsDocument) return;
         
-        _titleLabel.Text = item.Name;
-        _contentLabel.Text = item.DocumentContent;
+        TitleLabel.Text = item.Name;
+        ContentLabel.Text = item.DocumentContent;
         
         Visible = true;
     }

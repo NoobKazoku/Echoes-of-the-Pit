@@ -1,4 +1,5 @@
 using EchoesOfThePit.scripts.audio;
+using EchoesOfThePit.scripts.inventory.models;
 using EchoesOfThePit.scripts.game_state;
 using EchoesOfThePit.scripts.inventory;
 using EchoesOfThePit.scripts.config;
@@ -25,5 +26,6 @@ public class ModelModule : AbstractModule
         architecture.RegisterModel(new ConfigModel());
         architecture.RegisterModel(new InventoryManager());
         architecture.RegisterModel(new GameStateManager());
+        architecture.RegisterModel(new InventoryModel());
     }
 }

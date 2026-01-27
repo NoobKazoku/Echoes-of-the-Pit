@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=3 format=3 uid="uid://chefd3wnfa2cv"]
+
+[ext_resource type="Texture2D" uid="uid://p5dak2wsc1nk" path="res://nooblogo.png" id="1_cksio"]
+[ext_resource type="Script" uid="uid://bxt7kxofhgu4x" path="res://scripts/inventory/models/ItemData.cs" id="1_mtyg4"]
+
+[resource]
+script = ExtResource("1_mtyg4")
+Id = "3"
+Name = "剧情钥匙2"
+ItemType = 2
+Icon = ExtResource("1_cksio")
+metadata/_custom_type_script = "uid://bxt7kxofhgu4x"

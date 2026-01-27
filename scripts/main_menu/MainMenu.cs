@@ -1,3 +1,5 @@
+using System;
+using EchoesOfThePit.scripts.core.constants;
 using EchoesOfThePit.scripts.enums.ui;
 using GFramework.Core.Abstractions.controller;
 using GFramework.Core.extensions;
@@ -19,6 +21,11 @@ public partial class MainMenu : Control, IController, IUiPageBehaviorProvider, I
     private IUiPageBehavior? _page;
 
     private IUiRouter _uiRouter = null!;
+
+    /// <summary>
+    ///  Ui Key的字符串形式
+    /// </summary>
+    private static string UiKeyStr => nameof(UiKey.MainMenu);
 
     /// <summary>
     /// 页面进入时调用的方法
@@ -71,7 +78,7 @@ public partial class MainMenu : Control, IController, IUiPageBehaviorProvider, I
     /// <returns>返回IUiPageBehavior类型的页面行为实例</returns>
     public IUiPageBehavior GetPage()
     {
-        _page ??= new CanvasItemUiPageBehavior<Control>(this);
+        _page ??= new CanvasItemUiPageBehavior<Control>(this, UiKeyStr);
         return _page;
     }
 
@@ -81,6 +88,8 @@ public partial class MainMenu : Control, IController, IUiPageBehaviorProvider, I
     /// </summary>
     public override void _Ready()
     {
+        _log.Debug($"[MainMenu] Ready Size={Size} GlobalPos={GlobalPosition}");
+
         _uiRouter = this.GetSystem<IUiRouter>()!;
         GetNode<Button>("%NewGame").Pressed += () =>
         {
@@ -113,5 +122,18 @@ public partial class MainMenu : Control, IController, IUiPageBehaviorProvider, I
             GD.Print("退出按钮被按下");
             GetTree().Quit();
         };
+        CallDeferred(nameof(CallDeferredInit));
+    }
+
+    /// <summary>
+    /// 检查当前UI是否在路由栈顶，如果不在则将页面推入路由栈
+    /// </summary>
+    private void CallDeferredInit()
+    {
+        var env = this.GetEnvironment();
+        if (GameConstants.Development.Equals(env.Name, StringComparison.Ordinal) && !_uiRouter.IsTop(UiKeyStr))
+        {
+            _uiRouter.Push(GetPage());
+        }
     }
 }

@@ -9,4 +9,6 @@ public enum UiKey
     /// 玩家进行物品购买、升级等相关操作的场景
     /// </summary>
     Shop,
+    SaveMenu,
+    LoadMenu,
 }

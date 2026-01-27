@@ -21,6 +21,10 @@ public partial class _CLASS_ :_BASE_,IController,IUiPageBehaviorProvider,IUiPage
     {
         
     }
+    /// <summary>
+    ///  Ui Key的字符串形式 todo：请指定
+    /// </summary>
+    private static string UiKeyStr => "";
 	/// <summary>
     /// 页面行为实例的私有字段
     /// </summary>
@@ -32,10 +36,32 @@ public partial class _CLASS_ :_BASE_,IController,IUiPageBehaviorProvider,IUiPage
     /// <returns>返回IUiPageBehavior类型的页面行为实例</returns>
     public IUiPageBehavior GetPage()
     {
-        _page ??= new CanvasItemUiPageBehavior<_BASE_>(this);
+        _page ??= new CanvasItemUiPageBehavior<_BASE_>(this,UiKeyStr);
         return _page;
     }
-	
+    
+    /// <summary>
+    /// Godot节点就绪回调方法，用于初始化组件准备就绪后的操作
+    /// </summary>
+    public override void _Ready()
+    {
+	    CallDeferred(nameof(CallDeferredInit));
+    }
+    
+    /// <summary>
+    /// 延迟初始化方法，获取环境信息并根据开发环境条件和路由状态决定是否推送页面到路由栈
+    /// </summary>
+    private void CallDeferredInit()
+    {
+	    var env = this.GetEnvironment();
+	    // 检查当前环境是否为开发环境且UI路由栈顶不是当前UI键时，将页面推入路由栈
+	    if (GameConstants.Development.Equals(env.Name, StringComparison.Ordinal) &&!_uiRouter.IsTop(UiKeyStr))
+	    {
+		    _uiRouter.Push(GetPage());
+	    }
+	    // 请注意，事件绑定请在此处绑定
+    }
+
     /// <summary>
     /// 页面进入时调用的方法
     /// </summary>

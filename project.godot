@@ -17,7 +17,7 @@ boot_splash/fullsize=false
 boot_splash/image="uid://p5dak2wsc1nk"
 config/icon="uid://p5dak2wsc1nk"
 config/save/setting_path="user://setting.json"
-config/save/save_path="user://save"
+config/save/save_path="user://saves"
 
 [audio]
 

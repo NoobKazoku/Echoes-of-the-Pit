@@ -1,4 +1,5 @@
-﻿using EchoesOfThePit.scripts.setting;
+﻿using EchoesOfThePit.scripts.data;
+using EchoesOfThePit.scripts.setting;
 using GFramework.Core.Abstractions.architecture;
 using GFramework.Game.architecture;
 using GFramework.Game.serializer;
@@ -26,5 +27,6 @@ public class UtilityModule : AbstractModule
         architecture.RegisterUtility(jsonSerializer);
         architecture.RegisterUtility(new GodotFileStorage(jsonSerializer));
         architecture.RegisterUtility(new SettingsStorageUtility());
+        architecture.RegisterUtility(new SaveStorageUtility());
     }
 }

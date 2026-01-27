@@ -1,11 +1,12 @@
-[gd_scene load_steps=7 format=3 uid="uid://cadiuto78sm4w"]
+[gd_scene load_steps=8 format=3 uid="uid://bca6rj4pe66h0"]
 
+[ext_resource type="Script" uid="uid://557m0sbl7mi8" path="res://scripts/trade/NInventory.cs" id="1_auy1u"]
 [ext_resource type="PackedScene" uid="uid://bxg644b0631tk" path="res://scenes/Transaction/n_inventory_panel.tscn" id="1_kdguc"]
 [ext_resource type="PackedScene" uid="uid://cvichv74vje46" path="res://scenes/Transaction/NItem.tscn" id="2_h5ens"]
 [ext_resource type="Script" uid="uid://ce31x4o66hc7t" path="res://scripts/trade/CDrugItem.cs" id="3_h5ens"]
 [ext_resource type="Script" uid="uid://csm56pvpahhd0" path="res://scripts/trade/CWeaponItem.cs" id="4_auy1u"]
 
-[sub_resource type="Resource" id="Resource_h5ens"]
+[sub_resource type="Resource" id="Resource_12t7t"]
 resource_local_to_scene = true
 script = ExtResource("3_h5ens")
 mHealthRestore = 16
@@ -15,7 +16,7 @@ mImg = "uid://bgfymwn5rb7y3"
 mMoney = 10
 metadata/_custom_type_script = "uid://ce31x4o66hc7t"
 
-[sub_resource type="Resource" id="Resource_auy1u"]
+[sub_resource type="Resource" id="Resource_yxd7m"]
 resource_local_to_scene = true
 script = ExtResource("4_auy1u")
 mChangeAttack = 12.0
@@ -35,6 +36,7 @@ offset_right = -46.0
 offset_bottom = -49.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_auy1u")
 
 [node name="Panel" type="Panel" parent="."]
 layout_mode = 0
@@ -65,12 +67,13 @@ horizontal_alignment = 1
 [node name="Panel2" type="Panel" parent="."]
 layout_mode = 0
 offset_left = 38.0
-offset_top = 83.0
+offset_top = 82.0
 offset_right = 465.0
-offset_bottom = 678.0
+offset_bottom = 686.0
 
 [node name="NInventoryPanel" parent="Panel2" instance=ExtResource("1_kdguc")]
 layout_mode = 1
+anchors_preset = -1
 anchor_left = 0.5
 anchor_top = 0.42900002
 anchor_right = 0.5
@@ -84,7 +87,6 @@ grow_vertical = 1
 
 [node name="NInventoryPanel5" parent="Panel2" instance=ExtResource("1_kdguc")]
 layout_mode = 1
-anchors_preset = 0
 offset_left = 255.0
 offset_top = 393.0
 offset_right = -82.0
@@ -94,7 +96,6 @@ grow_vertical = 1
 
 [node name="NInventoryPanel2" parent="Panel2" instance=ExtResource("1_kdguc")]
 layout_mode = 1
-anchors_preset = 0
 offset_left = 82.0
 offset_top = 393.0
 offset_right = -255.0
@@ -104,7 +105,6 @@ grow_vertical = 1
 
 [node name="NInventoryPanel3" parent="Panel2" instance=ExtResource("1_kdguc")]
 layout_mode = 1
-anchors_preset = 0
 offset_left = 310.0
 offset_top = 202.0
 offset_right = -27.0
@@ -114,173 +114,12 @@ grow_vertical = 1
 
 [node name="NInventoryPanel4" parent="Panel2" instance=ExtResource("1_kdguc")]
 layout_mode = 1
-anchors_preset = 0
 offset_left = 25.0
 offset_top = 202.0
 offset_right = -312.0
 offset_bottom = -303.0
 grow_horizontal = 1
 grow_vertical = 1
-
-[node name="GridContainer" type="GridContainer" parent="."]
-layout_mode = 0
-offset_left = 517.0
-offset_top = 83.0
-offset_right = 1314.0
-offset_bottom = 678.0
-theme_override_constants/h_separation = 11
-theme_override_constants/v_separation = 11
-columns = 8
-
-[node name="NInventoryPanel" parent="GridContainer" instance=ExtResource("1_kdguc")]
-layout_mode = 2
-
-[node name="NItem" parent="GridContainer/NInventoryPanel" instance=ExtResource("2_h5ens")]
-mItem = SubResource("Resource_h5ens")
-
-[node name="NInventoryPanel2" parent="GridContainer" instance=ExtResource("1_kdguc")]
-layout_mode = 2
-
-[node name="NInventoryPanel3" parent="GridContainer" instance=ExtResource("1_kdguc")]
-layout_mode = 2
-
-[node name="NItem" parent="GridContainer/NInventoryPanel3" instance=ExtResource("2_h5ens")]
-mItem = SubResource("Resource_auy1u")
-
-[node name="NInventoryPanel4" parent="GridContainer" instance=ExtResource("1_kdguc")]
-layout_mode = 2
-
-[node name="NInventoryPanel5" parent="GridContainer" instance=ExtResource("1_kdguc")]
-layout_mode = 2
-
-[node name="NInventoryPanel6" parent="GridContainer" instance=ExtResource("1_kdguc")]
-layout_mode = 2
-
-[node name="NInventoryPanel7" parent="GridContainer" instance=ExtResource("1_kdguc")]
-layout_mode = 2
-
-[node name="NInventoryPanel8" parent="GridContainer" instance=ExtResource("1_kdguc")]
-layout_mode = 2
-
-[node name="NInventoryPanel9" parent="GridContainer" instance=ExtResource("1_kdguc")]
-layout_mode = 2
-
-[node name="NInventoryPanel10" parent="GridContainer" instance=ExtResource("1_kdguc")]
-layout_mode = 2
-
-[node name="NInventoryPanel11" parent="GridContainer" instance=ExtResource("1_kdguc")]
-layout_mode = 2
-
-[node name="NInventoryPanel12" parent="GridContainer" instance=ExtResource("1_kdguc")]
-layout_mode = 2
-
-[node name="NInventoryPanel13" parent="GridContainer" instance=ExtResource("1_kdguc")]
-layout_mode = 2
-
-[node name="NInventoryPanel14" parent="GridContainer" instance=ExtResource("1_kdguc")]
-layout_mode = 2
-
-[node name="NInventoryPanel15" parent="GridContainer" instance=ExtResource("1_kdguc")]
-layout_mode = 2
-
-[node name="NInventoryPanel16" parent="GridContainer" instance=ExtResource("1_kdguc")]
-layout_mode = 2
-
-[node name="NInventoryPanel17" parent="GridContainer" instance=ExtResource("1_kdguc")]
-layout_mode = 2
-
-[node name="NInventoryPanel18" parent="GridContainer" instance=ExtResource("1_kdguc")]
-layout_mode = 2
-
-[node name="NInventoryPanel19" parent="GridContainer" instance=ExtResource("1_kdguc")]
-layout_mode = 2
-
-[node name="NInventoryPanel20" parent="GridContainer" instance=ExtResource("1_kdguc")]
-layout_mode = 2
-
-[node name="NInventoryPanel21" parent="GridContainer" instance=ExtResource("1_kdguc")]
-layout_mode = 2
-
-[node name="NInventoryPanel22" parent="GridContainer" instance=ExtResource("1_kdguc")]
-layout_mode = 2
-
-[node name="NInventoryPanel23" parent="GridContainer" instance=ExtResource("1_kdguc")]
-layout_mode = 2
-
-[node name="NInventoryPanel24" parent="GridContainer" instance=ExtResource("1_kdguc")]
-layout_mode = 2
-
-[node name="NInventoryPanel25" parent="GridContainer" instance=ExtResource("1_kdguc")]
-layout_mode = 2
-
-[node name="NInventoryPanel26" parent="GridContainer" instance=ExtResource("1_kdguc")]
-layout_mode = 2
-
-[node name="NInventoryPanel27" parent="GridContainer" instance=ExtResource("1_kdguc")]
-layout_mode = 2
-
-[node name="NInventoryPanel28" parent="GridContainer" instance=ExtResource("1_kdguc")]
-layout_mode = 2
-
-[node name="NInventoryPanel29" parent="GridContainer" instance=ExtResource("1_kdguc")]
-layout_mode = 2
-
-[node name="NInventoryPanel30" parent="GridContainer" instance=ExtResource("1_kdguc")]
-layout_mode = 2
-
-[node name="NInventoryPanel31" parent="GridContainer" instance=ExtResource("1_kdguc")]
-layout_mode = 2
-
-[node name="NInventoryPanel32" parent="GridContainer" instance=ExtResource("1_kdguc")]
-layout_mode = 2
-
-[node name="NInventoryPanel33" parent="GridContainer" instance=ExtResource("1_kdguc")]
-layout_mode = 2
-
-[node name="NInventoryPanel34" parent="GridContainer" instance=ExtResource("1_kdguc")]
-layout_mode = 2
-
-[node name="NInventoryPanel35" parent="GridContainer" instance=ExtResource("1_kdguc")]
-layout_mode = 2
-
-[node name="NInventoryPanel36" parent="GridContainer" instance=ExtResource("1_kdguc")]
-layout_mode = 2
-
-[node name="NInventoryPanel37" parent="GridContainer" instance=ExtResource("1_kdguc")]
-layout_mode = 2
-
-[node name="NInventoryPanel38" parent="GridContainer" instance=ExtResource("1_kdguc")]
-layout_mode = 2
-
-[node name="NInventoryPanel39" parent="GridContainer" instance=ExtResource("1_kdguc")]
-layout_mode = 2
-
-[node name="NInventoryPanel40" parent="GridContainer" instance=ExtResource("1_kdguc")]
-layout_mode = 2
-
-[node name="NInventoryPanel41" parent="GridContainer" instance=ExtResource("1_kdguc")]
-layout_mode = 2
-
-[node name="NInventoryPanel42" parent="GridContainer" instance=ExtResource("1_kdguc")]
-layout_mode = 2
-
-[node name="NInventoryPanel43" parent="GridContainer" instance=ExtResource("1_kdguc")]
-layout_mode = 2
-
-[node name="NInventoryPanel44" parent="GridContainer" instance=ExtResource("1_kdguc")]
-layout_mode = 2
-
-[node name="NInventoryPanel45" parent="GridContainer" instance=ExtResource("1_kdguc")]
-layout_mode = 2
-
-[node name="NInventoryPanel46" parent="GridContainer" instance=ExtResource("1_kdguc")]
-layout_mode = 2
-
-[node name="NInventoryPanel47" parent="GridContainer" instance=ExtResource("1_kdguc")]
-layout_mode = 2
-
-[node name="NInventoryPanel48" parent="GridContainer" instance=ExtResource("1_kdguc")]
-layout_mode = 2
 
 [node name="Label" type="Label" parent="."]
 layout_mode = 0
@@ -316,3 +155,366 @@ offset_top = 22.0
 offset_right = 953.0
 offset_bottom = 70.0
 text = "角色名"
+
+[node name="LinkButton" type="LinkButton" parent="."]
+layout_mode = 0
+offset_left = 1251.0
+offset_top = 40.0
+offset_right = 1311.0
+offset_bottom = 82.0
+theme_override_font_sizes/font_size = 30
+text = "整理"
+
+[node name="TabContainer" type="TabContainer" parent="."]
+layout_mode = 0
+offset_left = 505.0
+offset_top = 60.0
+offset_right = 1321.0
+offset_bottom = 686.0
+current_tab = 0
+
+[node name="物品一" type="TabBar" parent="TabContainer"]
+layout_mode = 2
+metadata/_tab_index = 0
+
+[node name="GridContainer" type="GridContainer" parent="TabContainer/物品一"]
+layout_mode = 0
+offset_left = 8.0
+offset_right = 805.0
+offset_bottom = 595.0
+theme_override_constants/h_separation = 11
+theme_override_constants/v_separation = 11
+columns = 8
+
+[node name="NInventoryPanel" parent="TabContainer/物品一/GridContainer" instance=ExtResource("1_kdguc")]
+layout_mode = 2
+
+[node name="NItem" parent="TabContainer/物品一/GridContainer/NInventoryPanel" instance=ExtResource("2_h5ens")]
+mItem = SubResource("Resource_12t7t")
+
+[node name="NInventoryPanel2" parent="TabContainer/物品一/GridContainer" instance=ExtResource("1_kdguc")]
+layout_mode = 2
+
+[node name="NInventoryPanel3" parent="TabContainer/物品一/GridContainer" instance=ExtResource("1_kdguc")]
+layout_mode = 2
+
+[node name="NItem" parent="TabContainer/物品一/GridContainer/NInventoryPanel3" instance=ExtResource("2_h5ens")]
+mItem = SubResource("Resource_yxd7m")
+
+[node name="NInventoryPanel4" parent="TabContainer/物品一/GridContainer" instance=ExtResource("1_kdguc")]
+layout_mode = 2
+
+[node name="NInventoryPanel5" parent="TabContainer/物品一/GridContainer" instance=ExtResource("1_kdguc")]
+layout_mode = 2
+
+[node name="NItem2" parent="TabContainer/物品一/GridContainer/NInventoryPanel5" instance=ExtResource("2_h5ens")]
+position = Vector2(-404, 0)
+mItem = SubResource("Resource_12t7t")
+
+[node name="NInventoryPanel6" parent="TabContainer/物品一/GridContainer" instance=ExtResource("1_kdguc")]
+layout_mode = 2
+
+[node name="NItem2" parent="TabContainer/物品一/GridContainer/NInventoryPanel6" instance=ExtResource("2_h5ens")]
+position = Vector2(-303, 0)
+mItem = SubResource("Resource_yxd7m")
+
+[node name="NInventoryPanel7" parent="TabContainer/物品一/GridContainer" instance=ExtResource("1_kdguc")]
+layout_mode = 2
+
+[node name="NInventoryPanel8" parent="TabContainer/物品一/GridContainer" instance=ExtResource("1_kdguc")]
+layout_mode = 2
+
+[node name="NInventoryPanel9" parent="TabContainer/物品一/GridContainer" instance=ExtResource("1_kdguc")]
+layout_mode = 2
+
+[node name="NInventoryPanel10" parent="TabContainer/物品一/GridContainer" instance=ExtResource("1_kdguc")]
+layout_mode = 2
+
+[node name="NInventoryPanel11" parent="TabContainer/物品一/GridContainer" instance=ExtResource("1_kdguc")]
+layout_mode = 2
+
+[node name="NInventoryPanel12" parent="TabContainer/物品一/GridContainer" instance=ExtResource("1_kdguc")]
+layout_mode = 2
+
+[node name="NInventoryPanel13" parent="TabContainer/物品一/GridContainer" instance=ExtResource("1_kdguc")]
+layout_mode = 2
+
+[node name="NInventoryPanel14" parent="TabContainer/物品一/GridContainer" instance=ExtResource("1_kdguc")]
+layout_mode = 2
+
+[node name="NInventoryPanel15" parent="TabContainer/物品一/GridContainer" instance=ExtResource("1_kdguc")]
+layout_mode = 2
+
+[node name="NInventoryPanel16" parent="TabContainer/物品一/GridContainer" instance=ExtResource("1_kdguc")]
+layout_mode = 2
+
+[node name="NInventoryPanel17" parent="TabContainer/物品一/GridContainer" instance=ExtResource("1_kdguc")]
+layout_mode = 2
+
+[node name="NInventoryPanel18" parent="TabContainer/物品一/GridContainer" instance=ExtResource("1_kdguc")]
+layout_mode = 2
+
+[node name="NInventoryPanel19" parent="TabContainer/物品一/GridContainer" instance=ExtResource("1_kdguc")]
+layout_mode = 2
+
+[node name="NInventoryPanel20" parent="TabContainer/物品一/GridContainer" instance=ExtResource("1_kdguc")]
+layout_mode = 2
+
+[node name="NInventoryPanel21" parent="TabContainer/物品一/GridContainer" instance=ExtResource("1_kdguc")]
+layout_mode = 2
+
+[node name="NInventoryPanel22" parent="TabContainer/物品一/GridContainer" instance=ExtResource("1_kdguc")]
+layout_mode = 2
+
+[node name="NInventoryPanel23" parent="TabContainer/物品一/GridContainer" instance=ExtResource("1_kdguc")]
+layout_mode = 2
+
+[node name="NInventoryPanel24" parent="TabContainer/物品一/GridContainer" instance=ExtResource("1_kdguc")]
+layout_mode = 2
+
+[node name="NInventoryPanel25" parent="TabContainer/物品一/GridContainer" instance=ExtResource("1_kdguc")]
+layout_mode = 2
+
+[node name="NInventoryPanel26" parent="TabContainer/物品一/GridContainer" instance=ExtResource("1_kdguc")]
+layout_mode = 2
+
+[node name="NInventoryPanel27" parent="TabContainer/物品一/GridContainer" instance=ExtResource("1_kdguc")]
+layout_mode = 2
+
+[node name="NInventoryPanel28" parent="TabContainer/物品一/GridContainer" instance=ExtResource("1_kdguc")]
+layout_mode = 2
+
+[node name="NInventoryPanel29" parent="TabContainer/物品一/GridContainer" instance=ExtResource("1_kdguc")]
+layout_mode = 2
+
+[node name="NInventoryPanel30" parent="TabContainer/物品一/GridContainer" instance=ExtResource("1_kdguc")]
+layout_mode = 2
+
+[node name="NInventoryPanel31" parent="TabContainer/物品一/GridContainer" instance=ExtResource("1_kdguc")]
+layout_mode = 2
+
+[node name="NInventoryPanel32" parent="TabContainer/物品一/GridContainer" instance=ExtResource("1_kdguc")]
+layout_mode = 2
+
+[node name="NInventoryPanel33" parent="TabContainer/物品一/GridContainer" instance=ExtResource("1_kdguc")]
+layout_mode = 2
+
+[node name="NInventoryPanel34" parent="TabContainer/物品一/GridContainer" instance=ExtResource("1_kdguc")]
+layout_mode = 2
+
+[node name="NInventoryPanel35" parent="TabContainer/物品一/GridContainer" instance=ExtResource("1_kdguc")]
+layout_mode = 2
+
+[node name="NInventoryPanel36" parent="TabContainer/物品一/GridContainer" instance=ExtResource("1_kdguc")]
+layout_mode = 2
+
+[node name="NInventoryPanel37" parent="TabContainer/物品一/GridContainer" instance=ExtResource("1_kdguc")]
+layout_mode = 2
+
+[node name="NInventoryPanel38" parent="TabContainer/物品一/GridContainer" instance=ExtResource("1_kdguc")]
+layout_mode = 2
+
+[node name="NInventoryPanel39" parent="TabContainer/物品一/GridContainer" instance=ExtResource("1_kdguc")]
+layout_mode = 2
+
+[node name="NInventoryPanel40" parent="TabContainer/物品一/GridContainer" instance=ExtResource("1_kdguc")]
+layout_mode = 2
+
+[node name="NInventoryPanel41" parent="TabContainer/物品一/GridContainer" instance=ExtResource("1_kdguc")]
+layout_mode = 2
+
+[node name="NInventoryPanel42" parent="TabContainer/物品一/GridContainer" instance=ExtResource("1_kdguc")]
+layout_mode = 2
+
+[node name="NInventoryPanel43" parent="TabContainer/物品一/GridContainer" instance=ExtResource("1_kdguc")]
+layout_mode = 2
+
+[node name="NInventoryPanel44" parent="TabContainer/物品一/GridContainer" instance=ExtResource("1_kdguc")]
+layout_mode = 2
+
+[node name="NInventoryPanel45" parent="TabContainer/物品一/GridContainer" instance=ExtResource("1_kdguc")]
+layout_mode = 2
+
+[node name="NInventoryPanel46" parent="TabContainer/物品一/GridContainer" instance=ExtResource("1_kdguc")]
+layout_mode = 2
+
+[node name="NInventoryPanel47" parent="TabContainer/物品一/GridContainer" instance=ExtResource("1_kdguc")]
+layout_mode = 2
+
+[node name="NInventoryPanel48" parent="TabContainer/物品一/GridContainer" instance=ExtResource("1_kdguc")]
+layout_mode = 2
+
+[node name="物品二" type="TabBar" parent="TabContainer"]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 1
+
+[node name="GridContainer2" type="GridContainer" parent="TabContainer/物品二"]
+layout_mode = 0
+offset_left = 8.0
+offset_right = 805.0
+offset_bottom = 595.0
+theme_override_constants/h_separation = 11
+theme_override_constants/v_separation = 11
+columns = 8
+
+[node name="NInventoryPanel" parent="TabContainer/物品二/GridContainer2" instance=ExtResource("1_kdguc")]
+layout_mode = 2
+
+[node name="NItem" parent="TabContainer/物品二/GridContainer2/NInventoryPanel" instance=ExtResource("2_h5ens")]
+mItem = SubResource("Resource_12t7t")
+
+[node name="NInventoryPanel2" parent="TabContainer/物品二/GridContainer2" instance=ExtResource("1_kdguc")]
+layout_mode = 2
+
+[node name="NInventoryPanel3" parent="TabContainer/物品二/GridContainer2" instance=ExtResource("1_kdguc")]
+layout_mode = 2
+
+[node name="NItem" parent="TabContainer/物品二/GridContainer2/NInventoryPanel3" instance=ExtResource("2_h5ens")]
+mItem = SubResource("Resource_yxd7m")
+
+[node name="NInventoryPanel4" parent="TabContainer/物品二/GridContainer2" instance=ExtResource("1_kdguc")]
+layout_mode = 2
+
+[node name="NInventoryPanel5" parent="TabContainer/物品二/GridContainer2" instance=ExtResource("1_kdguc")]
+layout_mode = 2
+
+[node name="NItem2" parent="TabContainer/物品二/GridContainer2/NInventoryPanel5" instance=ExtResource("2_h5ens")]
+position = Vector2(-404, 0)
+mItem = SubResource("Resource_12t7t")
+
+[node name="NInventoryPanel6" parent="TabContainer/物品二/GridContainer2" instance=ExtResource("1_kdguc")]
+layout_mode = 2
+
+[node name="NItem2" parent="TabContainer/物品二/GridContainer2/NInventoryPanel6" instance=ExtResource("2_h5ens")]
+position = Vector2(-303, 0)
+mItem = SubResource("Resource_yxd7m")
+
+[node name="NInventoryPanel7" parent="TabContainer/物品二/GridContainer2" instance=ExtResource("1_kdguc")]
+layout_mode = 2
+
+[node name="NInventoryPanel8" parent="TabContainer/物品二/GridContainer2" instance=ExtResource("1_kdguc")]
+layout_mode = 2
+
+[node name="NInventoryPanel9" parent="TabContainer/物品二/GridContainer2" instance=ExtResource("1_kdguc")]
+layout_mode = 2
+
+[node name="NInventoryPanel10" parent="TabContainer/物品二/GridContainer2" instance=ExtResource("1_kdguc")]
+layout_mode = 2
+
+[node name="NInventoryPanel11" parent="TabContainer/物品二/GridContainer2" instance=ExtResource("1_kdguc")]
+layout_mode = 2
+
+[node name="NInventoryPanel12" parent="TabContainer/物品二/GridContainer2" instance=ExtResource("1_kdguc")]
+layout_mode = 2
+
+[node name="NInventoryPanel13" parent="TabContainer/物品二/GridContainer2" instance=ExtResource("1_kdguc")]
+layout_mode = 2
+
+[node name="NInventoryPanel14" parent="TabContainer/物品二/GridContainer2" instance=ExtResource("1_kdguc")]
+layout_mode = 2
+
+[node name="NInventoryPanel15" parent="TabContainer/物品二/GridContainer2" instance=ExtResource("1_kdguc")]
+layout_mode = 2
+
+[node name="NInventoryPanel16" parent="TabContainer/物品二/GridContainer2" instance=ExtResource("1_kdguc")]
+layout_mode = 2
+
+[node name="NInventoryPanel17" parent="TabContainer/物品二/GridContainer2" instance=ExtResource("1_kdguc")]
+layout_mode = 2
+
+[node name="NInventoryPanel18" parent="TabContainer/物品二/GridContainer2" instance=ExtResource("1_kdguc")]
+layout_mode = 2
+
+[node name="NInventoryPanel19" parent="TabContainer/物品二/GridContainer2" instance=ExtResource("1_kdguc")]
+layout_mode = 2
+
+[node name="NInventoryPanel20" parent="TabContainer/物品二/GridContainer2" instance=ExtResource("1_kdguc")]
+layout_mode = 2
+
+[node name="NInventoryPanel21" parent="TabContainer/物品二/GridContainer2" instance=ExtResource("1_kdguc")]
+layout_mode = 2
+
+[node name="NInventoryPanel22" parent="TabContainer/物品二/GridContainer2" instance=ExtResource("1_kdguc")]
+layout_mode = 2
+
+[node name="NInventoryPanel23" parent="TabContainer/物品二/GridContainer2" instance=ExtResource("1_kdguc")]
+layout_mode = 2
+
+[node name="NInventoryPanel24" parent="TabContainer/物品二/GridContainer2" instance=ExtResource("1_kdguc")]
+layout_mode = 2
+
+[node name="NInventoryPanel25" parent="TabContainer/物品二/GridContainer2" instance=ExtResource("1_kdguc")]
+layout_mode = 2
+
+[node name="NInventoryPanel26" parent="TabContainer/物品二/GridContainer2" instance=ExtResource("1_kdguc")]
+layout_mode = 2
+
+[node name="NInventoryPanel27" parent="TabContainer/物品二/GridContainer2" instance=ExtResource("1_kdguc")]
+layout_mode = 2
+
+[node name="NInventoryPanel28" parent="TabContainer/物品二/GridContainer2" instance=ExtResource("1_kdguc")]
+layout_mode = 2
+
+[node name="NInventoryPanel29" parent="TabContainer/物品二/GridContainer2" instance=ExtResource("1_kdguc")]
+layout_mode = 2
+
+[node name="NInventoryPanel30" parent="TabContainer/物品二/GridContainer2" instance=ExtResource("1_kdguc")]
+layout_mode = 2
+
+[node name="NInventoryPanel31" parent="TabContainer/物品二/GridContainer2" instance=ExtResource("1_kdguc")]
+layout_mode = 2
+
+[node name="NInventoryPanel32" parent="TabContainer/物品二/GridContainer2" instance=ExtResource("1_kdguc")]
+layout_mode = 2
+
+[node name="NInventoryPanel33" parent="TabContainer/物品二/GridContainer2" instance=ExtResource("1_kdguc")]
+layout_mode = 2
+
+[node name="NInventoryPanel34" parent="TabContainer/物品二/GridContainer2" instance=ExtResource("1_kdguc")]
+layout_mode = 2
+
+[node name="NInventoryPanel35" parent="TabContainer/物品二/GridContainer2" instance=ExtResource("1_kdguc")]
+layout_mode = 2
+
+[node name="NInventoryPanel36" parent="TabContainer/物品二/GridContainer2" instance=ExtResource("1_kdguc")]
+layout_mode = 2
+
+[node name="NInventoryPanel37" parent="TabContainer/物品二/GridContainer2" instance=ExtResource("1_kdguc")]
+layout_mode = 2
+
+[node name="NInventoryPanel38" parent="TabContainer/物品二/GridContainer2" instance=ExtResource("1_kdguc")]
+layout_mode = 2
+
+[node name="NInventoryPanel39" parent="TabContainer/物品二/GridContainer2" instance=ExtResource("1_kdguc")]
+layout_mode = 2
+
+[node name="NInventoryPanel40" parent="TabContainer/物品二/GridContainer2" instance=ExtResource("1_kdguc")]
+layout_mode = 2
+
+[node name="NInventoryPanel41" parent="TabContainer/物品二/GridContainer2" instance=ExtResource("1_kdguc")]
+layout_mode = 2
+
+[node name="NInventoryPanel42" parent="TabContainer/物品二/GridContainer2" instance=ExtResource("1_kdguc")]
+layout_mode = 2
+
+[node name="NInventoryPanel43" parent="TabContainer/物品二/GridContainer2" instance=ExtResource("1_kdguc")]
+layout_mode = 2
+
+[node name="NInventoryPanel44" parent="TabContainer/物品二/GridContainer2" instance=ExtResource("1_kdguc")]
+layout_mode = 2
+
+[node name="NInventoryPanel45" parent="TabContainer/物品二/GridContainer2" instance=ExtResource("1_kdguc")]
+layout_mode = 2
+
+[node name="NInventoryPanel46" parent="TabContainer/物品二/GridContainer2" instance=ExtResource("1_kdguc")]
+layout_mode = 2
+
+[node name="NInventoryPanel47" parent="TabContainer/物品二/GridContainer2" instance=ExtResource("1_kdguc")]
+layout_mode = 2
+
+[node name="NInventoryPanel48" parent="TabContainer/物品二/GridContainer2" instance=ExtResource("1_kdguc")]
+layout_mode = 2
+
+[connection signal="pressed" from="LinkButton" to="." method="_on_link_button_pressed"]
+[connection signal="tab_selected" from="TabContainer" to="." method="_on_tab_container_tab_selected"]

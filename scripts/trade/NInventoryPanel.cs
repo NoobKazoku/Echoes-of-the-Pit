@@ -3,6 +3,7 @@ using Godot;
 
 public partial class NInventoryPanel : Panel
 {
+	public static string CUR_SEL_PANEL = "CUR_SEL_PANEL";
 	/// <summary>
 	/// 节点准备就绪时的回调方法
 	/// 在节点添加到场景树后调用
@@ -56,6 +57,13 @@ public partial class NInventoryPanel : Panel
 					if (item != null)
 					{
 						// 交换物品
+						NInventoryPanel oriGroupPanel = GetTree().GetFirstNodeInGroup(NInventoryPanel.CUR_SEL_PANEL) as NInventoryPanel;
+						if (oriGroupPanel != null)
+						{
+							selItem.Reparent(oriGroupPanel);
+							oriGroupPanel.RemoveFromGroup(NInventoryPanel.CUR_SEL_PANEL);
+						}
+
 						NInventoryPanel selParent = selItem.GetParentOrNull<NInventoryPanel>();
 						if (selParent != null)
 						{
